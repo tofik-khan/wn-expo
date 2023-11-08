@@ -1,0 +1,27 @@
+{
+  "name": "wn-expo-portal",
+  "version": "1.0.0",
+  "description": "Event Portal for WN Expo",
+  "scripts": {
+    "build": "node secretKey.js && node buildtime-data-fetcher.js && next build",
+    "dev": "next dev",
+    "start": "next start"
+  },
+  "author": "Tofik Khan",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "dotenv": "^16.0.3",
+    "eslint-config-next": "^13.1.2",
+    "express": "^4.18.1",
+    "googleapis": "^104.0.0",
+    "next": "^13.5.4",
+    "nodemailer": "^6.9.3",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.7.0",
+    "react-bootstrap-icons": "^1.10.2",
+    "react-dom": "^18.2.0",
+    "request": "^2.88.2",
+    "styled-components": "^5.3.7"
+  }
+}
