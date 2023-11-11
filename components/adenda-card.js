@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Live } from "./live-pill";
+import { Avatar } from "./Avatar";
 
 const StyledContainer = styled.button`
   color: unset;
@@ -26,8 +27,10 @@ const StyledContainer = styled.button`
 
 const StyledThumbnail = styled.img`
   width: 300px;
-  height: 170px;
+  min-height: 170px;
   object-fit: cover;
+
+  padding: 4px;
 
   border-radius: 16px;
 `;
@@ -35,7 +38,7 @@ const StyledThumbnail = styled.img`
 const StyledBody = styled.div`
   padding: 8px;
   width: 100%;
-  height: 170px;
+  min-height: 170px;
 
   display: flex;
   flex-direction: row;
@@ -56,7 +59,29 @@ const Time = styled.span`
   padding: 8px;
 `;
 
-const Title = styled.h2``;
+const Title = styled.h2`
+  text-align: left;
+  font-size: 20px;
+`;
+
+const Description = styled.p`
+  font-size: 12px;
+  color: #888888;
+  width: 100%;
+  text-align: left;
+`;
+
+const PresenterContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const MorePresentersContainers = styled.p`
+  font-size: 12px;
+  color: #888888;
+  margin: 0;
+  font-weight: bold;
+`;
 
 export const AgendaCard = ({
   title,
@@ -66,8 +91,13 @@ export const AgendaCard = ({
   endTime,
   presenters,
   thumbnail,
+  isLive, //temporary flag until function is developed
   onClick,
 }) => {
+  // Apparently this has to be done before the splice otherwise the splice changes the original array. JS is not JSing.
+  const morePresenters =
+    presenters.length > 2 ? `+ ${presenters.length - 2} more` : "";
+  const presentersToDisplay = presenters.splice(0, 2);
   return (
     <StyledContainer>
       <StyledThumbnail src={thumbnail} />
@@ -75,11 +105,23 @@ export const AgendaCard = ({
         <div>
           <StyledTimeContainer>
             <Time>{`${startTime} - ${endTime}`}</Time>
-            <Live />
+            {isLive && <Live />}
           </StyledTimeContainer>
           <Title>{title}</Title>
+          <Description>{description}</Description>
         </div>
-        <div>PresenterContainer</div>
+        <div>
+          <PresenterContainer>
+            {presentersToDisplay.map((presenter, index) => (
+              <Avatar
+                key={`presenter-${index}`}
+                name={presenter.name}
+                image={presenter.image}
+              />
+            ))}
+          </PresenterContainer>
+          <MorePresentersContainers>{morePresenters}</MorePresentersContainers>
+        </div>
       </StyledBody>
     </StyledContainer>
   );

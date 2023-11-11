@@ -23,7 +23,7 @@ const StyledName = styled.p`
   font-family: "Lato", sans-serif;
   font-size: 12px;
   line-height: 16px;
-  margin-top: 2px;
+  margin: 2px 0px;
   width: 72px;
 `;
 

@@ -7,9 +7,9 @@ const StyledContainer = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 8px;
-  padding: 4px 8px;
+  padding: 0px 8px;
   border: 3px solid red;
-  border-radius: 15px;
+  border-radius: 20px;
   width: fit-content;
   color: red;
 
