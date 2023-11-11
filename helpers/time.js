@@ -1,17 +1,21 @@
 import moment from "moment-timezone";
 
-export const isLive = (start, end, date) => {
-  const startTime = moment.tz(
-    `${date} ${start}`,
-    "YYYY-MM-DD hh:mma",
-    "America/New_York"
-  );
-  const endTime = moment.tz(
-    `${date} ${end}`,
-    "YYYY-MM-DD hh:mma",
-    "America/New_York"
-  );
-  const currentTime = moment().tz("America/New_York");
+export const TIMEFORMAT = "YYYY-MM-DD hh:mma";
 
-  return currentTime.isAfter(startTime) && currentTime.isBefore(endTime);
+export const isLive = (start, current, end) => {
+  const startTime = moment.tz(`${start}`, TIMEFORMAT, "America/New_York");
+  const endTime = moment.tz(`${end}`, TIMEFORMAT, "America/New_York");
+  const currentTime = moment.tz(`${current}`, TIMEFORMAT, "America/New_York");
+  console.log(
+    start,
+    current,
+    end,
+    currentTime.isBetween(startTime.format(), endTime.format(), undefined, "[)")
+  );
+  return currentTime.isBetween(
+    startTime.format(),
+    endTime.format(),
+    undefined,
+    "[)"
+  );
 };

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Live } from "./live-pill";
 import { Avatar } from "./Avatar";
+import { isLive } from "../helpers/time";
+import moment from "moment-timezone";
 
 const StyledContainer = styled.button`
   color: unset;
@@ -91,13 +93,27 @@ export const AgendaCard = ({
   endTime,
   presenters,
   thumbnail,
-  isLive, //temporary flag until function is developed
   onClick,
 }) => {
+  // Create a deep copy of presenters because the splice is removing elements from original array
+  presenters = JSON.parse(JSON.stringify(presenters));
   // Apparently this has to be done before the splice otherwise the splice changes the original array. JS is not JSing.
   const morePresenters =
     presenters.length > 2 ? `+ ${presenters.length - 2} more` : "";
   const presentersToDisplay = presenters.splice(0, 2);
+
+  const [time, updateTime] = useState(
+    moment().tz("America/New_York").format("YYYY-MM-DD hh:mma")
+  );
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      updateTime(moment().tz("America/New_York").format("YYYY-MM-DD hh:mma"));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <StyledContainer>
       <StyledThumbnail src={thumbnail} />
@@ -105,7 +121,9 @@ export const AgendaCard = ({
         <div>
           <StyledTimeContainer>
             <Time>{`${startTime} - ${endTime}`}</Time>
-            {isLive && <Live />}
+            {isLive(`${date} ${startTime}`, time, `${date} ${endTime}`) && (
+              <Live />
+            )}
           </StyledTimeContainer>
           <Title>{title}</Title>
           <Description>{description}</Description>
