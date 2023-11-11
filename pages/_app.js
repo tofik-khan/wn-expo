@@ -1,18 +1,13 @@
 
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
-import { SSRProvider } from "react-bootstrap";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap");
   }, []);
 
-  return (
-    <SSRProvider>
-      <Component {...pageProps} />
-    </SSRProvider>
-  );
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;

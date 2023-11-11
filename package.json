@@ -25,5 +25,8 @@
     "react-dom": "^18.2.0",
     "request": "^2.88.2",
     "styled-components": "^5.3.7"
+  },
+  "devDependencies": {
+    "@types/bootstrap": "^5.2.9"
   }
 }
