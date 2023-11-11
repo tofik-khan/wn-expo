@@ -115,7 +115,7 @@ export const AgendaCard = ({
   }, []);
 
   return (
-    <StyledContainer>
+    <StyledContainer onClick={onClick}>
       <StyledThumbnail src={thumbnail} />
       <StyledBody>
         <div>
