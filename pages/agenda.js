@@ -10,7 +10,7 @@ const Page = () => {
   const [modalBody, updateModalBody] = useState({});
 
   useEffect(() => {
-    fetch("/api/get-sessions")
+    fetch("/api/sessions/boys")
       .then((response) => response.json())
       .then((response) => updateSessions(processSessionData(response.data)));
     updateLoaded(true);
