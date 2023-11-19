@@ -11,6 +11,7 @@ const StyledContainer = styled.button`
   text-decoration: none;
   width: 100%;
   padding: 0;
+  margin-block: 16px;
 
   background-color: transparent;
   background-image: none;
