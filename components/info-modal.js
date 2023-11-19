@@ -50,8 +50,9 @@ export const InfoModal = ({ show, onHide, content }) => {
           }}
         >
           {content.presenters &&
-            content.presenters.map((presenter) => (
+            content.presenters.map((presenter, index) => (
               <Avatar
+                key={`modal-presenter-avatar-${index}`}
                 name={presenter.name}
                 image={presenter.image}
                 size={"lg"}

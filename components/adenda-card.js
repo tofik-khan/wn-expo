@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Live } from "./live-pill";
 import { Avatar } from "./Avatar";
-import { isLive } from "../helpers/time";
+import { currentTime, isLive } from "../helpers/time";
 import moment from "moment-timezone";
 
 const StyledContainer = styled.button`
@@ -11,6 +11,7 @@ const StyledContainer = styled.button`
   text-decoration: none;
   width: 100%;
   padding: 0;
+  margin-block: 16px;
 
   background-color: transparent;
   background-image: none;
@@ -102,13 +103,11 @@ export const AgendaCard = ({
     presenters.length > 2 ? `+ ${presenters.length - 2} more` : "";
   const presentersToDisplay = presenters.splice(0, 2);
 
-  const [time, updateTime] = useState(
-    moment().tz("America/New_York").format("YYYY-MM-DD hh:mma")
-  );
+  const [time, updateTime] = useState(currentTime());
 
   useEffect(() => {
     const interval = setInterval(() => {
-      updateTime(moment().tz("America/New_York").format("YYYY-MM-DD hh:mma"));
+      updateTime(currentTime());
     }, 1000);
 
     return () => clearInterval(interval);

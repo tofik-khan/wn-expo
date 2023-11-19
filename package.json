@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Event Portal for WN Expo",
   "scripts": {
-    "build": "node secretKey.js && node buildtime-data-fetcher.js && next build",
+    "build": "node secret-key.js && node buildtime-data-fetcher.js && next build",
     "dev": "next dev",
     "start": "next start"
   },

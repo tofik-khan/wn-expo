@@ -15,8 +15,5 @@ export const isLive = (start, current, end) => {
 };
 
 export const currentTime = () => {
-  const current = moment().tz("America/New_York").format(TIMEFORMAT);
-  return moment
-    .tz(`${current}`, TIMEFORMAT, "America/New_York")
-    .format(TIMEFORMAT);
+  return moment().tz("America/New_York").format(TIMEFORMAT);
 };
