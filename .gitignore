@@ -2,4 +2,3 @@ node_modules
 .next
 *.env*
 *_key.json
-listings.json
