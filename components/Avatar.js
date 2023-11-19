@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const AvatarContainer = styled.div`
-  width: 80px;
+  width: ${(props) => (props.size === "lg" ? "100px" : "80px")};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,8 +11,8 @@ const AvatarContainer = styled.div`
 `;
 
 const StyledImage = styled.div`
-  width: 72px;
-  height: 72px;
+  width: ${(props) => (props.size === "lg" ? "92px" : "72px")};
+  height: ${(props) => (props.size === "lg" ? "92px" : "72px")};
   border-radius: 12px;
   background-image: url("${(props) => props.image}");
   background-size: cover;
@@ -21,15 +21,15 @@ const StyledImage = styled.div`
 
 const StyledName = styled.p`
   font-family: "Lato", sans-serif;
-  font-size: 12px;
+  font-size: ${(props) => (props.size === "lg" ? "14px" : "12px")};
   line-height: 16px;
   margin: 2px 0px;
-  width: 72px;
+  width: ${(props) => (props.size === "lg" ? "92px" : "72px")};
 `;
 
-export const Avatar = ({ name, image }) => (
-  <AvatarContainer>
-    <StyledImage image={image} />
-    <StyledName>{name}</StyledName>
+export const Avatar = ({ name, image, size }) => (
+  <AvatarContainer size={size}>
+    <StyledImage image={image} size={size} />
+    <StyledName size={size}>{name}</StyledName>
   </AvatarContainer>
 );
