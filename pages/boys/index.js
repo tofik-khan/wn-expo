@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { AgendaCard } from "../components/adenda-card";
-import { InfoModal } from "../components/info-modal";
-import { processSessionData } from "../helpers/api-functions";
+import { AgendaCard } from "../../components/adenda-card";
+import { InfoModal } from "../../components/info-modal";
+import { processSessionData } from "../../helpers/api-functions";
 
 const Page = () => {
   const [sessions, updateSessions] = useState([]);
