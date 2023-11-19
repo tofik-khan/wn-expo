@@ -22,22 +22,25 @@ const Page = () => {
 
   return (
     <>
-      {sessions.map((session, index) => (
-        <AgendaCard
-          key={`session-id-${index}`}
-          title={session.title}
-          description={session.description}
-          thumbnail={session.thumbnail}
-          date={session.date}
-          startTime={session.startTime}
-          endTime={session.endTime}
-          presenters={session.presenters}
-          onClick={() => {
-            updateModalBody(session);
-            updateShowModal(true);
-          }}
-        />
-      ))}
+      {sessions.map(
+        (session, index) =>
+          session.published && (
+            <AgendaCard
+              key={`session-id-${index}`}
+              title={session.title}
+              description={session.description}
+              thumbnail={session.thumbnail}
+              date={session.date}
+              startTime={session.startTime}
+              endTime={session.endTime}
+              presenters={session.presenters}
+              onClick={() => {
+                updateModalBody(session);
+                updateShowModal(true);
+              }}
+            />
+          )
+      )}
       <InfoModal
         show={showModal}
         onHide={() => updateShowModal(false)}
