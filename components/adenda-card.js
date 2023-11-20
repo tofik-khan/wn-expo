@@ -45,6 +45,7 @@ const StyledBody = styled.div`
 
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 `;
 
 const StyledTimeContainer = styled.div`
@@ -77,6 +78,7 @@ const Description = styled.p`
 const PresenterContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: start;
 `;
 
 const MorePresentersContainers = styled.p`
