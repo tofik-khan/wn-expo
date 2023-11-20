@@ -20,6 +20,7 @@ export const InfoModal = ({ show, onHide, content }) => {
   return (
     <Modal
       size="lg"
+      fullscreen={"lg-down"}
       show={show}
       onHide={onHide}
       aria-labelledby={"session-info-modal"}
@@ -45,6 +46,7 @@ export const InfoModal = ({ show, onHide, content }) => {
           style={{
             display: "flex",
             flexDirection: "row",
+            alignItems: "start",
             gap: "8px",
             marginBlock: "8px",
           }}
