@@ -23,6 +23,7 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
     "react-bootstrap-icons": "^1.10.2",
+    "react-countdown": "^2.3.5",
     "react-dom": "^18.2.0",
     "request": "^2.88.2",
     "styled-components": "^5.3.7"
