@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import { AgendaCard } from "../../components/adenda-card";
 import { InfoModal } from "../../components/info-modal";
 import { processSessionData } from "../../helpers/api-functions";
+import { Navigation } from "../../partials/Nav";
+import { Loading } from "../../partials/agenda/loading";
 
 const Page = () => {
   const [sessions, updateSessions] = useState([]);
@@ -12,35 +15,42 @@ const Page = () => {
   useEffect(() => {
     fetch("/api/sessions/boys")
       .then((response) => response.json())
-      .then((response) => updateSessions(processSessionData(response.data)));
-    updateLoaded(true);
+      .then((response) => updateSessions(processSessionData(response.data)))
+      .then(() => updateLoaded(true));
   }, []);
 
   if (!loaded) {
-    return <h1>Loading...</h1>;
+    return <Loading />;
   }
 
   return (
     <>
-      {sessions.map(
-        (session, index) =>
-          session.published && (
-            <AgendaCard
-              key={`session-id-${index}`}
-              title={session.title}
-              description={session.description}
-              thumbnail={session.thumbnail}
-              date={session.date}
-              startTime={session.startTime}
-              endTime={session.endTime}
-              presenters={session.presenters}
-              onClick={() => {
-                updateModalBody(session);
-                updateShowModal(true);
-              }}
-            />
-          )
-      )}
+      <Navigation />
+      <Container>
+        <Row>
+          <Col>
+            {sessions.map(
+              (session, index) =>
+                session.published && (
+                  <AgendaCard
+                    key={`session-id-${index}`}
+                    title={session.title}
+                    description={session.description}
+                    thumbnail={session.thumbnail}
+                    date={session.date}
+                    startTime={session.startTime}
+                    endTime={session.endTime}
+                    presenters={session.presenters}
+                    onClick={() => {
+                      updateModalBody(session);
+                      updateShowModal(true);
+                    }}
+                  />
+                )
+            )}
+          </Col>
+        </Row>
+      </Container>
       <InfoModal
         show={showModal}
         onHide={() => updateShowModal(false)}
