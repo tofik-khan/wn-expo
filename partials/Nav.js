@@ -13,7 +13,25 @@ const StyledNavBar = styled(Navbar)`
 `;
 
 const StyledSpacer = styled.div`
-  margin-bottom: 140px;
+  margin-bottom: 82px;
+`;
+
+const StyledLink = styled(Nav.Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 15px;
+  color: white;
+  margin-bottom: 0;
+
+  text-decoration: underline rgba(255, 255, 255, 0);
+  text-underline-offset: 2px;
+
+  &:hover {
+    text-decoration: underline rgba(255, 255, 255, 1) 2px;
+    transition: text-decoration 500ms;
+  }
 `;
 
 export const Navigation = () => {
@@ -31,14 +49,16 @@ export const Navigation = () => {
           </Navbar.Toggle>
           <Navbar.Collapse className="justify-content-end align-items-center">
             <Nav>
-              <Nav.Link
+              <StyledLink href="/boys">Boys</StyledLink>
+              <StyledLink href="/girls">Girls</StyledLink>
+              <StyledLink
                 href="https://www.youtube.com/playlist?list=PLTpYqC-wRAALgWS-xkbf0-IkO_S_22iv4"
                 target="_blank"
                 rel="noreferrer"
                 className="align-items-center"
               >
                 2023 Recording
-              </Nav.Link>
+              </StyledLink>
               <Nav.Link href="/" className="align-items-center">
                 <Button variant="primary" size="small">
                   Register
