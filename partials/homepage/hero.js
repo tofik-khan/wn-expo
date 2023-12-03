@@ -20,8 +20,6 @@ const StyledContainer = styled(Container)`
   color: white;
 
   text-align: center;
-
-  max-width: 1500px;
 `;
 
 export const Hero = () => {
