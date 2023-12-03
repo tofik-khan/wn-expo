@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Navigation } from "../Nav";
 import styled from "styled-components";
+import { Footer } from "../footer";
 
 const Loader = styled.div`
   && {
@@ -56,6 +57,7 @@ export const Loading = () => {
           <strong>Loading...</strong>
         </p>
       </StyledContainer>
+      <Footer />
     </>
   );
 };
