@@ -5,6 +5,7 @@ import { InfoModal } from "../../components/info-modal";
 import { processSessionData } from "../../helpers/api-functions";
 import { Navigation } from "../../partials/Nav";
 import { Loading } from "../../partials/agenda/loading";
+import { Footer } from "../../partials/footer";
 
 const Page = () => {
   const [sessions, updateSessions] = useState([]);
@@ -51,6 +52,7 @@ const Page = () => {
           </Col>
         </Row>
       </Container>
+      <Footer />
 
       <InfoModal
         show={showModal}
