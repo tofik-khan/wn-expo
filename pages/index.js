@@ -4,6 +4,7 @@ import { Hero } from "../partials/homepage/hero";
 import { InfoContainer } from "../partials/homepage/info";
 import { Sponsors } from "../partials/homepage/sponsors";
 import { Footer } from "../partials/footer";
+import { Venue } from "../partials/homepage/venue";
 
 export const Page = () => {
   return (
@@ -12,6 +13,7 @@ export const Page = () => {
       <Hero />
       <InfoContainer />
       <Sponsors />
+      <Venue />
       <Footer />
     </>
   );
