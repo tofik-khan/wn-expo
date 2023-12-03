@@ -26,6 +26,10 @@ const StyledContainer = styled.button`
   &:hover {
     background-color: #f7f7fc;
   }
+
+  @media only screen and (max-width: 900px) {
+    flex-direction: column;
+  }
 `;
 
 const StyledThumbnail = styled.img`
@@ -36,6 +40,10 @@ const StyledThumbnail = styled.img`
   padding: 4px;
 
   border-radius: 16px;
+
+  @media only screen and (max-width: 900px) {
+    width: 100%;
+  }
 `;
 
 const StyledBody = styled.div`
@@ -46,6 +54,10 @@ const StyledBody = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media only screen and (max-width: 900px) {
+    flex-direction: column;
+  }
 `;
 
 const StyledTimeContainer = styled.div`
