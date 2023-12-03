@@ -27,6 +27,11 @@ const StyledBlock = styled.div`
 
   font-size: 28px;
   font-weight: bold;
+
+  @media only screen and (max-width: 600px) {
+    width: 80px;
+    height: 80px;
+  }
 `;
 
 const StyledTitle = styled.h3`
