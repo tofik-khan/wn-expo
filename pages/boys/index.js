@@ -51,6 +51,7 @@ const Page = () => {
           </Col>
         </Row>
       </Container>
+      <Footer />
       <InfoModal
         show={showModal}
         onHide={() => updateShowModal(false)}
