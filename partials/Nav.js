@@ -17,20 +17,24 @@ const StyledSpacer = styled.div`
 `;
 
 const StyledLink = styled(Nav.Link)`
+  all: unset;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
-  font-size: 15px;
+  padding: 4px 8px;
+
+  border-radius: 8px;
+
+  font-size: 16px;
+  font-weight: bold;
   color: white;
   margin-bottom: 0;
 
-  text-decoration: underline rgba(255, 255, 255, 0);
-  text-underline-offset: 2px;
-
   &:hover {
-    text-decoration: underline rgba(255, 255, 255, 1) 2px;
-    transition: text-decoration 500ms;
+    background-color: #00000044;
+    color: white;
   }
 `;
 
