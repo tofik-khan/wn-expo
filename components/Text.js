@@ -5,12 +5,12 @@ export const LightText = styled.p`
   font-size: ${(props) => {
     switch (props.size) {
       case "lg":
-        return "20px";
+        return "24px";
       case "md":
-        return "16px";
+        return "20px";
       case "small":
       default:
-        return "12px";
+        return "16px";
     }
   }};
 `;
@@ -20,12 +20,12 @@ export const WhiteText = styled.p`
   font-size: ${(props) => {
     switch (props.size) {
       case "lg":
-        return "20px";
+        return "24px";
       case "md":
-        return "16px";
+        return "20px";
       case "small":
       default:
-        return "12px";
+        return "16px";
     }
   }};
 `;

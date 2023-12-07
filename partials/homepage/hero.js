@@ -22,6 +22,23 @@ const StyledContainer = styled(Container)`
   text-align: center;
 `;
 
+const StyledOverlayContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  padding-block: 16px;
+  background-color: #2457b288;
+  text-align: center;
+
+  margin-top: 8px;
+
+  > p {
+    margin: 0;
+  }
+`;
+
 export const Hero = () => {
   return (
     <StyledContainer fluid>
@@ -29,7 +46,7 @@ export const Hero = () => {
         className="justify-content-center"
         style={{ maxWidth: "800px", margin: "auto" }}
       >
-        <Col>
+        <Col className="justify-content-center text-center">
           <WhiteText size={"sm"}>
             January 20th, 2023 (Boys) & January 21st, 2023 (Girls)
           </WhiteText>
@@ -41,6 +58,12 @@ export const Hero = () => {
           </WhiteText>
           <CountdownTimer date={"Jan 20 2024 10:00:00 GMT-0500"} />
         </Col>
+        <StyledOverlayContainer>
+          <WhiteText size={"md"}>
+            Registration is highly recommended. Attendees should try to join
+            both days! In-person attendance preferred
+          </WhiteText>
+        </StyledOverlayContainer>
       </Row>
     </StyledContainer>
   );
