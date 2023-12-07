@@ -19,7 +19,7 @@ export const Footer = () => {
             md="auto"
             className="order-last order-lg-first mt-4 mt-lg-0"
           >
-            <a href="https://mkausa.org">
+            <a href="https://waqfenau.us" target="_blank" rel="noreferrer">
               <img
                 src="/images/wn-logomark.png"
                 width={200}

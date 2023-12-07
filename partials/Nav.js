@@ -17,20 +17,24 @@ const StyledSpacer = styled.div`
 `;
 
 const StyledLink = styled(Nav.Link)`
+  all: unset;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
-  font-size: 15px;
+  padding: 4px 8px;
+
+  border-radius: 8px;
+
+  font-size: 16px;
+  font-weight: bold;
   color: white;
   margin-bottom: 0;
 
-  text-decoration: underline rgba(255, 255, 255, 0);
-  text-underline-offset: 2px;
-
   &:hover {
-    text-decoration: underline rgba(255, 255, 255, 1) 2px;
-    transition: text-decoration 500ms;
+    background-color: #00000044;
+    color: white;
   }
 `;
 
@@ -49,8 +53,8 @@ export const Navigation = () => {
           </Navbar.Toggle>
           <Navbar.Collapse className="justify-content-end align-items-center">
             <Nav>
-              <StyledLink href="/boys">Boys</StyledLink>
-              <StyledLink href="/girls">Girls</StyledLink>
+              <StyledLink href="/boys">Boys Agenda</StyledLink>
+              <StyledLink href="/girls">Girls Agenda</StyledLink>
               <StyledLink
                 href="https://www.youtube.com/playlist?list=PLTpYqC-wRAALgWS-xkbf0-IkO_S_22iv4"
                 target="_blank"
@@ -59,7 +63,12 @@ export const Navigation = () => {
               >
                 2023 Recording
               </StyledLink>
-              <Nav.Link href="/" className="align-items-center">
+              <Nav.Link
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdUWVwngRILWugN5eeVRO4yQHtpy7s4O1aMDCLvTabLKHp92g/viewform"
+                target="_blank"
+                rel="noreferrer"
+                className="align-items-center"
+              >
                 <Button variant="primary" size="small">
                   Register
                 </Button>
