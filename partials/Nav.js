@@ -63,7 +63,12 @@ export const Navigation = () => {
               >
                 2023 Recording
               </StyledLink>
-              <Nav.Link href="/" className="align-items-center">
+              <Nav.Link
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdUWVwngRILWugN5eeVRO4yQHtpy7s4O1aMDCLvTabLKHp92g/viewform"
+                target="_blank"
+                rel="noreferrer"
+                className="align-items-center"
+              >
                 <Button variant="primary" size="small">
                   Register
                 </Button>
