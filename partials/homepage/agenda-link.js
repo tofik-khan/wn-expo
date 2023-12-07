@@ -14,9 +14,17 @@ const LinkContainer = styled.div`
 const LinkButton = styled(Link)`
   width: 200px;
   height: 200px;
+
   background: url("${(props) => props.image}");
-  background-size: cover;
+  background-size: 100%;
+  background-position: center;
+  transition: all 0.3s ease-in-out;
+
   border-radius: 8px;
+
+  &:hover {
+    background-size: 110%;
+  }
 `;
 
 export const AgendaLinks = () => {
