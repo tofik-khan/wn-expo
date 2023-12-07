@@ -53,8 +53,8 @@ export const Navigation = () => {
           </Navbar.Toggle>
           <Navbar.Collapse className="justify-content-end align-items-center">
             <Nav>
-              <StyledLink href="/boys">Boys</StyledLink>
-              <StyledLink href="/girls">Girls</StyledLink>
+              <StyledLink href="/boys">Boys Agenda</StyledLink>
+              <StyledLink href="/girls">Girls Agenda</StyledLink>
               <StyledLink
                 href="https://www.youtube.com/playlist?list=PLTpYqC-wRAALgWS-xkbf0-IkO_S_22iv4"
                 target="_blank"
