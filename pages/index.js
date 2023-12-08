@@ -8,6 +8,7 @@ import { Venue } from "../partials/homepage/venue";
 import { AgendaLinks } from "../partials/homepage/agenda-link";
 import { Container, Row, Col } from "react-bootstrap";
 import { YoutubeEmbed } from "../components/youtube-embed";
+import { ImagesContainer } from "../partials/homepage/images";
 
 export const Page = () => {
   return (
@@ -16,6 +17,7 @@ export const Page = () => {
       <Hero />
       <InfoContainer />
       <AgendaLinks />
+      <ImagesContainer />
       <Sponsors />
       <Container>
         <Row className="justify-content-center text-center">
