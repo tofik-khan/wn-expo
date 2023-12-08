@@ -15,7 +15,7 @@ const StyledContainer = styled(Container)`
 
   box-shadow: inset 0 0 0 2000px rgba(14, 26, 42, 0.85);
 
-  height: 500px;
+  height: 600px;
 
   color: white;
 
@@ -52,9 +52,8 @@ export const Hero = () => {
           </WhiteText>
           <h1 className="pb-3">2024 WAQF-E-NAU USA CAREER EXPO</h1>
           <WhiteText size={"md"} className="pb-5">
-            Learn about 23 different careers in 34 sessions/tracks from 40+
-            presenters that a Waqf-e-Nau can pick to serve his/her faith. Open
-            to Non-Waqifeen-e-Nau as well!
+            Learn about different careers that a Waqf-e-Nau can pick to serve
+            his/her faith. Open to Non-Waqifeen-e-Nau as well!
           </WhiteText>
           <CountdownTimer date={"Jan 20 2024 10:00:00 GMT-0500"} />
         </Col>
