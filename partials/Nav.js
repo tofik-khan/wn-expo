@@ -35,6 +35,7 @@ const StyledLink = styled(Nav.Link)`
   &:hover {
     background-color: #00000044;
     color: white;
+    cursor: pointer;
   }
 `;
 
@@ -55,6 +56,7 @@ export const Navigation = () => {
             <Nav>
               <StyledLink href="/boys">Boys Agenda</StyledLink>
               <StyledLink href="/girls">Girls Agenda</StyledLink>
+              <StyledLink href="/faq">FAQs</StyledLink>
               <StyledLink
                 href="https://www.youtube.com/playlist?list=PLTpYqC-wRAALgWS-xkbf0-IkO_S_22iv4"
                 target="_blank"
