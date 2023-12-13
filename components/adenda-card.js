@@ -81,7 +81,7 @@ const Title = styled.h2`
 `;
 
 const Description = styled.p`
-  font-size: 12px;
+  font-size: 14px;
   color: #888888;
   width: 100%;
   text-align: left;
