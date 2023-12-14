@@ -56,6 +56,7 @@ export const Navigation = () => {
             <Nav>
               <StyledLink href="/boys">Boys Agenda</StyledLink>
               <StyledLink href="/girls">Girls Agenda</StyledLink>
+              <StyledLink href="/speakers">Speakers</StyledLink>
               <StyledLink href="/faq">FAQs</StyledLink>
               <StyledLink
                 href="https://www.youtube.com/playlist?list=PLTpYqC-wRAALgWS-xkbf0-IkO_S_22iv4"
@@ -64,6 +65,14 @@ export const Navigation = () => {
                 className="align-items-center"
               >
                 2023 Recording
+              </StyledLink>
+              <StyledLink
+                href="https://www.waqfenau.us/contact-us/"
+                target="_blank"
+                rel="noreferrer"
+                className="align-items-center"
+              >
+                Contact Us
               </StyledLink>
               <Nav.Link
                 href="https://docs.google.com/forms/d/e/1FAIpQLSdUWVwngRILWugN5eeVRO4yQHtpy7s4O1aMDCLvTabLKHp92g/viewform"
