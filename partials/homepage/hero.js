@@ -15,7 +15,7 @@ const StyledContainer = styled(Container)`
 
   box-shadow: inset 0 0 0 2000px rgba(14, 26, 42, 0.85);
 
-  height: 600px;
+  height: 500px;
 
   color: white;
 

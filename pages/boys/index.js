@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import Image from "next/image";
 import { Container, Row, Col } from "react-bootstrap";
 import { AgendaCard } from "../../components/adenda-card";
@@ -9,6 +10,26 @@ import { Loading } from "../../partials/agenda/loading";
 import { Footer } from "../../partials/footer";
 import ExpoLogo from "/public/images/expo-logo.png";
 import { LightText } from "../../components/Text";
+
+const StyledContainer = styled(Container)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("/images/expo-logo.png");
+  background-size: fit;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  box-shadow: inset 0 0 0 2000px rgba(14, 26, 42, 0.85);
+
+  height: 350px;
+
+  color: white;
+
+  text-align: center;
+`;
 
 const Page = () => {
   const [sessions, updateSessions] = useState([]);
@@ -30,14 +51,9 @@ const Page = () => {
   return (
     <>
       <Navigation />
-      <Container className="py-5">
+      <StyledContainer className="py-5">
         <Row className="py-3">
-          <Col md={6}>
-            <div style={{ position: "relative", textAlign: "center" }}>
-              <Image src={ExpoLogo} height={150} />
-            </div>
-          </Col>
-          <Col md={6} className="text-center">
+          <Col className="text-center">
             <h1>2024 Waqf-e-Nau Expo</h1>
             <LightText size="lg">Boys</LightText>
             <p>
@@ -45,20 +61,7 @@ const Page = () => {
             </p>
           </Col>
         </Row>
-        <Row className="py-3 text-center">
-          <Col>
-            Please reach us at{" "}
-            <a href="tel:301-450-0001">
-              <strong>301-450-0001</strong>
-            </a>{" "}
-            or{" "}
-            <a href="wn.events@ahmadiyya.us">
-              <strong>wn.events@ahmadiyya.us</strong>
-            </a>{" "}
-            if you are facing any issue.
-          </Col>
-        </Row>
-      </Container>
+      </StyledContainer>
       <Container>
         <Row>
           <Col>
