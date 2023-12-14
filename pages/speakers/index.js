@@ -61,7 +61,7 @@ const Page = () => {
       <Container className="py-5">
         <Row className="justify-content-center">
           {speakers.map((speaker) => (
-            <Col md={2}>
+            <Col md={2} xs={6} className="d-flex justify-content-center">
               <Avatar
                 key={`speaker-${speaker.id}`}
                 name={speaker.name}
