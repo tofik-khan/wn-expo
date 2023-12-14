@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Image from "next/image";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Modal } from "react-bootstrap";
 import { Navigation } from "../../partials/Nav";
 import { Footer } from "../../partials/footer";
-import ExpoLogo from "/public/images/expo-logo.png";
 import { LightText } from "../../components/Text";
 import { Avatar } from "../../components/Avatar";
 import { processSpeakerData } from "../../helpers/api-functions";
 import { Loading } from "../../partials/agenda/loading";
+import { SpeakerModal } from "../../components/speaker-modal";
 
 const StyledContainer = styled(Container)`
   display: flex;
@@ -69,7 +68,8 @@ const Page = () => {
                 subtitle={speaker.subtitle}
                 size={"xl"}
                 onClick={() => {
-                  console.log("clicked");
+                  updateModalBody(speaker);
+                  updateShowModal(true);
                 }}
               />
             </Col>
@@ -77,6 +77,12 @@ const Page = () => {
         </Row>
       </Container>
       <Footer />
+
+      <SpeakerModal
+        show={showModal}
+        onHide={() => updateShowModal(false)}
+        content={modalBody}
+      />
     </>
   );
 };
