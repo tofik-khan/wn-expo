@@ -13,6 +13,7 @@ export const LightText = styled.p`
         return "16px";
     }
   }};
+  text-wrap: nowrap;
 `;
 
 export const WhiteText = styled.p`

@@ -58,7 +58,7 @@ const Page = () => {
         </Row>
       </StyledContainer>
       <Container className="py-5">
-        <Row className="justify-content-center">
+        <Row className="justify-content-center align-items-start">
           {speakers.map((speaker) => (
             <Col md={2} xs={6} className="d-flex justify-content-center">
               <Avatar
