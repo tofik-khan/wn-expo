@@ -48,19 +48,19 @@ export const InfoContainer = () => {
           </Col>
           <Col md={3}>
             <StyledBlock>
-              <StyledHighlight>23+</StyledHighlight>
+              <StyledHighlight>36+</StyledHighlight>
               <StyledSubText>Careers</StyledSubText>
             </StyledBlock>
           </Col>
           <Col md={3}>
             <StyledBlock>
-              <StyledHighlight>34</StyledHighlight>
+              <StyledHighlight>43</StyledHighlight>
               <StyledSubText>Sessions</StyledSubText>
             </StyledBlock>
           </Col>
           <Col md={3}>
             <StyledBlock>
-              <StyledHighlight>40</StyledHighlight>
+              <StyledHighlight>50+</StyledHighlight>
               <StyledSubText>Professionals</StyledSubText>
             </StyledBlock>
           </Col>
