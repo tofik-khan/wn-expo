@@ -4,7 +4,7 @@ import { Container, Row, Col, Modal } from "react-bootstrap";
 
 const StyledThumbnail = styled.img`
   width: 200px;
-  min-height: 200px;
+  height: 200px;
   object-fit: cover;
 
   padding: 4px;
@@ -13,6 +13,8 @@ const StyledThumbnail = styled.img`
 `;
 
 export const SpeakerModal = ({ show, onHide, content }) => {
+  let columnWidth = 6;
+  if (content.description && content.description.length > 500) columnWidth = 12;
   return (
     <Modal
       size="lg"
@@ -28,10 +30,13 @@ export const SpeakerModal = ({ show, onHide, content }) => {
       <Modal.Body>
         <Container>
           <Row className="justify-content-center">
-            <Col md={6} className="d-flex justify-content-center">
+            <Col md={columnWidth} className="d-flex justify-content-center">
               <StyledThumbnail src={content.image} />
             </Col>
-            <Col md={6} className="d-flex justify-content-center py-5">
+            <Col
+              md={columnWidth}
+              className="d-flex justify-content-center py-5"
+            >
               <p>{content.description}</p>
             </Col>
           </Row>

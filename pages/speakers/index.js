@@ -29,6 +29,22 @@ const StyledContainer = styled(Container)`
   text-align: center;
 `;
 
+const AmeerSb = {
+  name: "Sahibzada Mirza Maghfoor Ahmad",
+  subtitle: "Ameer Jama'at USA",
+  image: "/images/presenters/ameer-sahib.jpeg",
+  description:
+    "Respected Ameer Sahib USA will be presiding over the closing session of the Career Expo and will lead the closing Dua (Silent Prayers) on Saturday, January, 20, 2024",
+};
+
+const SadrLajna = {
+  name: "Dhiya Tahira Bakr",
+  subtitle: "Sadr Sahiba Lajna USA",
+  image: "/images/graphics/girl3.jpg",
+  description:
+    "Respected Sadr Sahiba Lajna USA will be presiding over the closing session of the Career Expo and will lead the closing Dua (Silent Prayers) on Sunday, January, 21, 2024",
+};
+
 const Page = () => {
   const [speakers, updateSpeakers] = useState([]);
   const [loaded, updateLoaded] = useState(false);
@@ -58,9 +74,47 @@ const Page = () => {
         </Row>
       </StyledContainer>
       <Container className="py-5">
+        <Row className="text-center">
+          <Col>
+            <h2>Featured Speakers</h2>
+          </Col>
+        </Row>
+        <Row className="justify-content-center">
+          <Col md={6} className="d-flex justify-content-center py-3">
+            <Avatar
+              name={AmeerSb.name}
+              image={AmeerSb.image}
+              subtitle={AmeerSb.subtitle}
+              onClick={() => {
+                updateModalBody(AmeerSb);
+                updateShowModal(true);
+              }}
+              size={"xxl"}
+            />
+          </Col>
+          <Col md={6} className="d-flex justify-content-center py-3">
+            <Avatar
+              name={SadrLajna.name}
+              image={SadrLajna.image}
+              subtitle={SadrLajna.subtitle}
+              onClick={() => {
+                updateModalBody(SadrLajna);
+                updateShowModal(true);
+              }}
+              size={"xxl"}
+            />
+          </Col>
+        </Row>
+      </Container>
+      <Container className="py-3">
+        <Row className="text-center">
+          <Col>
+            <h2>Session Speakers</h2>
+          </Col>
+        </Row>
         <Row className="justify-content-center align-items-start">
           {speakers.map((speaker) => (
-            <Col md={2} xs={6} className="d-flex justify-content-center">
+            <Col md={2} xs={6} className="d-flex justify-content-center py-3">
               <Avatar
                 key={`speaker-${speaker.id}`}
                 name={speaker.name}
