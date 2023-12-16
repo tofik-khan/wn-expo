@@ -14,6 +14,7 @@ export const LightText = styled.p`
     }
   }};
   text-wrap: nowrap;
+  line-height: ${(props) => props.lineHeight ?? "inherit"};
 `;
 
 export const WhiteText = styled.p`

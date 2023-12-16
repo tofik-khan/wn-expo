@@ -22,6 +22,9 @@ const AvatarContainer = styled.div`
 const StyledImage = styled.div`
   width: ${(props) => {
     switch (props.size) {
+      case "xxl":
+        return "250px";
+        break;
       case "xl":
         return "150px";
         break;
@@ -36,6 +39,9 @@ const StyledImage = styled.div`
   }};
   height: ${(props) => {
     switch (props.size) {
+      case "xxl":
+        return "250px";
+        break;
       case "xl":
         return "150px";
         break;
@@ -56,8 +62,12 @@ const StyledImage = styled.div`
 
 const StyledName = styled.p`
   font-family: "Lato", sans-serif;
+  text-align: center;
   font-size: ${(props) => {
     switch (props.size) {
+      case "xxl":
+        return "20px";
+        break;
       case "xl":
         return "18px";
         break;
@@ -72,6 +82,7 @@ const StyledName = styled.p`
   }};
   line-height: ${(props) => {
     switch (props.size) {
+      case "xxl":
       case "xl":
         return "20px";
         break;
@@ -100,6 +111,9 @@ const StyledName = styled.p`
   }};
   width: ${(props) => {
     switch (props.size) {
+      case "xxl":
+        return "200px";
+        break;
       case "xl":
         return "150px";
         break;
@@ -118,6 +132,10 @@ export const Avatar = ({ name, image, size, subtitle, onClick }) => (
   <AvatarContainer size={size} onClick={onClick}>
     <StyledImage image={image} size={size} />
     <StyledName size={size}>{name}</StyledName>
-    {subtitle && <LightText size={"sm"}>{subtitle}</LightText>}
+    {subtitle && (
+      <LightText lineHeight={"2px"} size={"sm"}>
+        {subtitle}
+      </LightText>
+    )}
   </AvatarContainer>
 );
