@@ -26,7 +26,5 @@ export default async function handler(req, res) {
     range: "Speakers!A:I", //range of cells to read from.
   });
 
-  console.log(readData.data.values);
-
   res.status(200).json({ success: true, data: readData.data.values });
 }
