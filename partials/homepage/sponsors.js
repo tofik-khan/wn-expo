@@ -34,8 +34,8 @@ export const Sponsors = () => {
           <Col className="py-3">
             <h2>Partners/Sponsors</h2>
             <p>
-              A huge thanks to all our amazing partners. We couldn't have a
-              conference without you!
+              JazakAllah to all of our amazing partners. We couldn't have this
+              expo without your participation & support
             </p>
           </Col>
         </Row>

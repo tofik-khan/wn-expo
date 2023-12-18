@@ -77,12 +77,12 @@ const Page = () => {
                 <Accordion.Body>
                   <ul>
                     <li>
-                      Respected Ameer Sahib USA will join the closing session on
-                      January 20, 2024
+                      Respected Ameer Sahib USA will inshaAllah preside over the
+                      closing session on January 20, 2024
                     </li>
                     <li>
-                      Respected Sadr Sahiba Lajna USA will join the closing
-                      session on January 21, 2024
+                      Respected Sadr Sahiba Lajna USA will inshaAllah preside
+                      over the closing session on January 21, 2024
                     </li>
                   </ul>
                 </Accordion.Body>
