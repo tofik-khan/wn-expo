@@ -15,6 +15,11 @@ export const LightText = styled.p`
   }};
   text-wrap: nowrap;
   line-height: ${(props) => props.lineHeight ?? "inherit"};
+
+  @media only screen and (max-width: 600px) {
+    line-height: ${(props) => (props.lineHeight ? "16px" : "inherit")};
+    text-wrap: wrap;
+  }
 `;
 
 export const WhiteText = styled.p`
