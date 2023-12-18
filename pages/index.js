@@ -25,7 +25,7 @@ export const Page = () => {
             <h2>2023 Career Report</h2>
             <p>
               Watch the MTA USA report of our first-ever Career Expo held in
-              February 2023
+              January 2023
             </p>
           </Col>
         </Row>
