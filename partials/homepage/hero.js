@@ -59,8 +59,9 @@ export const Hero = () => {
         </Col>
         <StyledOverlayContainer>
           <WhiteText size={"md"}>
-            Registration is highly recommended. Attendees should try to join
-            both days! In-person attendance preferred
+            Register now for our two-day event! In-person attendance is
+            preferred, with boys on January 20th and girls on January 21st.
+            Ideal for ages 12-26.
           </WhiteText>
         </StyledOverlayContainer>
       </Row>
