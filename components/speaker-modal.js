@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Container, Row, Col, Modal } from "react-bootstrap";
+import { LightText } from "./Text";
 
 const StyledThumbnail = styled.img`
   width: 200px;
@@ -25,11 +26,14 @@ export const SpeakerModal = ({ show, onHide, content }) => {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title>{content.name}</Modal.Title>
+        <Modal.Title>
+          {content.name}
+          <LightText>{content.subtitle}</LightText>
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Container>
-          <Row className="justify-content-center">
+          <Row className="justify-content-center align-items-center">
             <Col md={columnWidth} className="d-flex justify-content-center">
               <StyledThumbnail src={content.image} />
             </Col>
