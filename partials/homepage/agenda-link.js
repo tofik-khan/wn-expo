@@ -33,7 +33,7 @@ export const AgendaLinks = () => {
       <Row className="justify-content-center text-center py-3">
         <Col>
           <h2>Agenda</h2>
-          <p>Find out what's in store for boys and girls</p>
+          <p>Click to view detailed agenda. Please attend both days</p>
         </Col>
       </Row>
       <LinkContainer>
