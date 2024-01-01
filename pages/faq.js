@@ -259,7 +259,7 @@ const Page = () => {
               </Accordion.Item>
               <Accordion.Item eventKey="16">
                 <Accordion.Header>
-                  If attending in-person, when should I plan to arrive for boys
+                  If attending in-person, when should I plan to arrive for girls
                   program (Jan 21)?
                 </Accordion.Header>
                 <Accordion.Body>
