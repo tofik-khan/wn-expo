@@ -36,6 +36,7 @@ const Page = () => {
   const [modalBody, updateModalBody] = useState({});
   const [startTime, udpateStartTime] = useState("");
   const [endTime, updateEndTime] = useState("");
+  const [date, updateDate] = useState("");
 
   useEffect(() => {
     fetch("/api/sessions/boys")
@@ -82,6 +83,12 @@ const Page = () => {
               id="endTime"
               onChange={(e) => updateEndTime(e.target.value)}
             />
+            <label htmlFor="date">Date</label>
+            <input
+              type="text"
+              id="date"
+              onChange={(e) => updateDate(e.target.value)}
+            />
           </Col>
         </Row>
         <Row>
@@ -94,7 +101,7 @@ const Page = () => {
                     title={session.title}
                     description={session.description}
                     thumbnail={session.thumbnail}
-                    date={"2023-12-16"}
+                    date={date}
                     startTime={startTime}
                     endTime={endTime}
                     presenters={session.presenters}
@@ -112,7 +119,7 @@ const Page = () => {
       <InfoModal
         show={showModal}
         onHide={() => updateShowModal(false)}
-        content={{ ...modalBody, startTime, endTime, date: "2023-12-16" }}
+        content={{ ...modalBody, startTime, endTime, date: date }}
       />
     </>
   );
