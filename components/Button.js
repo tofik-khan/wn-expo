@@ -61,10 +61,17 @@ const StyledLink = styled(Link)`
   ${SharedStyle}
 `;
 
-export default function Button({ variant, children, size, href, onClick }) {
+export default function Button({
+  variant,
+  children,
+  size,
+  href,
+  onClick,
+  ...rest
+}) {
   if (href) {
     return (
-      <StyledLink href={href} variant={variant} size={size}>
+      <StyledLink href={href} variant={variant} size={size} {...rest}>
         {children}
       </StyledLink>
     );
