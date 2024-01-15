@@ -16,6 +16,31 @@ const StyledThumbnail = styled.img`
   border-radius: 16px;
 `;
 
+const SessionLiveContainer = ({ content }) => {
+  return content.link !== "" ? (
+    isLive(
+      `${content.date} ${content.startTime}`,
+      currentTime(),
+      `${content.date} ${content.endTime}`
+    ) ? (
+      <Button
+        variant={"primary"}
+        href={content.link}
+        target="_blank"
+        rel="noreferrer"
+      >
+        Join Now!
+      </Button>
+    ) : (
+      <LightText size={"md"}>
+        This session is not live yet, please check back here when it goes live
+      </LightText>
+    )
+  ) : (
+    <></>
+  );
+};
+
 export const InfoModal = ({ show, onHide, content }) => {
   return (
     <Modal
@@ -38,6 +63,8 @@ export const InfoModal = ({ show, onHide, content }) => {
             {content.startTime} - {content.endTime}
           </div>
           {content.title}
+          <br />
+          <SessionLiveContainer content={content} />
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -62,20 +89,7 @@ export const InfoModal = ({ show, onHide, content }) => {
             ))}
         </div>
         <p style={{ marginBlock: "16px" }}>{content.description}</p>
-        {isLive(
-          `${content.date} ${content.startTime}`,
-          currentTime(),
-          `${content.date} ${content.endTime}`
-        ) ? (
-          <Button variant={"primary"} href={content.link}>
-            Join Now!
-          </Button>
-        ) : (
-          <LightText size={"md"}>
-            This session is not live yet, please check back here when it goes
-            live
-          </LightText>
-        )}
+        <SessionLiveContainer content={content} />
       </Modal.Body>
     </Modal>
   );

@@ -7,7 +7,7 @@ export const isLive = (start, current, end) => {
   const endTime = moment.tz(`${end}`, TIMEFORMAT, "America/New_York");
   const currentTime = moment.tz(`${current}`, TIMEFORMAT, "America/New_York");
   return currentTime.isBetween(
-    startTime.format(),
+    startTime.subtract(5, "minute").format(),
     endTime.format(),
     undefined,
     "[)"
