@@ -14,6 +14,7 @@ export const processSessionData = (data) => {
       link: session[INDEX.LINK],
       presenters: JSON.parse(session[INDEX.PRESENTERS]),
       published: session[INDEX.PUBLISHED] === "TRUE" ? true : false,
+      room: session[INDEX.ROOM],
     };
   });
 

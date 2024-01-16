@@ -7,3 +7,4 @@ export const ENDTIME = 5;
 export const LINK = 6;
 export const PRESENTERS = 7;
 export const PUBLISHED = 8;
+export const ROOM = 9;
