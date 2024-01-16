@@ -82,6 +82,7 @@ const Page = () => {
                     startTime={session.startTime}
                     endTime={session.endTime}
                     presenters={session.presenters}
+                    room={session.room}
                     onClick={() => {
                       updateModalBody(session);
                       updateShowModal(true);
