@@ -54,6 +54,9 @@ export const Hero = () => {
           <WhiteText size={"md"} className="pb-5">
             Learn about different careers that a Waqf-e-Nau can pick to serve
             his/her faith. Open to Non-Waqifeen-e-Nau as well!
+            <br />
+            Please contact us at <a href="tel:425-298-6610">425-298-6610</a> if
+            you have any questions
           </WhiteText>
           <CountdownTimer date={"Jan 20 2024 10:00:00 GMT-0500"} />
         </Col>
