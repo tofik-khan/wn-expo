@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { Live } from "./live-pill";
 import { Avatar } from "./Avatar";
 import { currentTime, isLive } from "../helpers/time";
-import moment from "moment-timezone";
+import { Chip } from "./chip";
+import { DoorOpen } from "react-bootstrap-icons";
 
 const StyledContainer = styled.button`
   color: unset;
@@ -107,6 +108,7 @@ export const AgendaCard = ({
   startTime,
   endTime,
   presenters,
+  room,
   thumbnail,
   onClick,
 }) => {
@@ -133,6 +135,12 @@ export const AgendaCard = ({
       <StyledBody>
         <div>
           <StyledTimeContainer>
+            {room && (
+              <Chip>
+                <DoorOpen />
+                {room}
+              </Chip>
+            )}
             <Time>{`${startTime} - ${endTime}`}</Time>
             {isLive(`${date} ${startTime}`, time, `${date} ${endTime}`) && (
               <Live />
