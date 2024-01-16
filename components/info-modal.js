@@ -5,6 +5,8 @@ import { Avatar } from "./Avatar";
 import { currentTime, isLive } from "../helpers/time";
 import Button from "./Button";
 import { LightText } from "./Text";
+import { Chip } from "./chip";
+import { DoorOpen } from "react-bootstrap-icons";
 
 const StyledThumbnail = styled.img`
   width: 100%;
@@ -68,6 +70,12 @@ export const InfoModal = ({ show, onHide, content }) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        {content.room && (
+          <Chip>
+            <DoorOpen />
+            {content.room}
+          </Chip>
+        )}
         <StyledThumbnail src={content.thumbnail} />
         <div
           style={{
