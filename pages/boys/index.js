@@ -62,10 +62,11 @@ const Page = () => {
           </Col>
         </Row>
       </StyledContainer>
-      <Container>
+      <Container className="py-3">
         <Row>
           <Col>
             <h2>Agenda</h2>
+            <LightText>Please scroll down to view live tracks</LightText>
           </Col>
         </Row>
         <Row>
