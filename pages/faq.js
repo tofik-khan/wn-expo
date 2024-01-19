@@ -4,6 +4,7 @@ import { Navigation } from "../partials/Nav";
 import { Footer } from "../partials/footer";
 import styled from "styled-components";
 import Button from "../components/Button";
+import Image from "next/image";
 
 const YellowBgText = styled.span`
   background-color: #6ccff6;
@@ -28,6 +29,68 @@ const Page = () => {
         <Row>
           <Col>
             <Accordion>
+              <Accordion.Item eventKey="4">
+                <Accordion.Header>
+                  How can I join the Expo Virtually?
+                </Accordion.Header>
+                <Accordion.Body>
+                  <p>
+                    When Joining the Zoom Sessions, please change your name to
+                    your name and add number of people with you watching
+                    together in parentheses like Ahmed Khan (3). Moreover, there
+                    will be a survey at the end of Expo that needs to be filled
+                    out.
+                  </p>
+                  <h3>Step # 1</h3>
+                  <p>
+                    {" "}
+                    On Saturday, 20th January, click on "Boys Agenda" from
+                    theTop Menu or from the middle part of the Home Page the
+                    "Male" icon. On Sunday, 21st January, click on "Girls
+                    Agenda" from the Top Menu or from the middle part of the
+                    Home Page the "Female" icon.
+                  </p>
+                  <Image
+                    src="/images/faqs/step-1.png"
+                    width={400}
+                    height={300}
+                  />
+                  <p>
+                    <strong>Or on mobile:</strong>
+                  </p>
+                  <Image
+                    src="/images/faqs/step-1-mobile.png"
+                    width={300}
+                    height={400}
+                  />
+
+                  <h3>Step # 2</h3>
+                  <p>
+                    Scroll down to the current Eastern Time Zone and you will
+                    see the "Live Button". Click on the Session/Track you want
+                    to Join.
+                  </p>
+                  <Image
+                    src="/images/faqs/step-2.png"
+                    width={500}
+                    height={200}
+                  />
+
+                  <h3>Step # 3</h3>
+                  <p>
+                    Once you click, a new window will open up, you can then
+                    click "Join Now" to open the Zoom Meeting. 5 Minute before
+                    the start of each session, you will see the opportunity to
+                    Join. Each Zoom Meeting is a different Meeting from the
+                    other.
+                  </p>
+                  <Image
+                    src="/images/faqs/step-3.png"
+                    width={400}
+                    height={500}
+                  />
+                </Accordion.Body>
+              </Accordion.Item>
               <Accordion.Item eventKey="0">
                 <Accordion.Header>
                   What is the Purpose of the Career Expo?
@@ -111,25 +174,6 @@ const Page = () => {
                     <li>
                       Respected Sadr Sahiba Lajna USA will join the closing
                       session on January 21, 2024
-                    </li>
-                  </ul>
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="4">
-                <Accordion.Header>
-                  How can I join the Expo Virtually?
-                </Accordion.Header>
-                <Accordion.Body>
-                  <ul>
-                    <li>
-                      Click the Boys Agenda Link on January 20th. There will be
-                      a “LIVE” button on the sessions which are live. Click the
-                      Track and Click “Join Now”
-                    </li>
-                    <li>
-                      Click the Girls Agenda Link on January 21st. There will be
-                      a “LIVE” button on the sessions which are live. Click the
-                      Track and Click “Join Now”
                     </li>
                   </ul>
                 </Accordion.Body>

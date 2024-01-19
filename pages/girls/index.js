@@ -64,6 +64,7 @@ const Page = () => {
         <Row>
           <Col>
             <h2>Agenda</h2>
+            <LightText>Please scroll down to view live tracks</LightText>
           </Col>
         </Row>
         <Row>
