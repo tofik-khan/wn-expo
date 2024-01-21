@@ -19,20 +19,12 @@ export const Page = () => {
       <Container fluid className="py-5 my-3 bg-light">
         <Row className="justify-content-center text-center py-3">
           <Col>
-            <h2>Register/Join Now!</h2>
+            <h2>Join Now!</h2>
           </Col>
         </Row>
         <Row className="justify-content-center">
           <Col md={"auto"} className="text-center py-3">
-            <Button
-              variant={"primary"}
-              href="https://docs.google.com/forms/d/e/1FAIpQLSdUWVwngRILWugN5eeVRO4yQHtpy7s4O1aMDCLvTabLKHp92g/viewform"
-            >
-              Click to Register
-            </Button>
-          </Col>
-          <Col md={"auto"} className="text-center py-3">
-            <Button variant={"secondary"} href="/girls">
+            <Button variant={"primary"} href="/girls">
               Join Jan 21 Session
             </Button>
           </Col>
