@@ -32,8 +32,8 @@ export const Page = () => {
             </Button>
           </Col>
           <Col md={"auto"} className="text-center py-3">
-            <Button variant={"secondary"} href="/boys">
-              Join Jan 20 Session
+            <Button variant={"secondary"} href="/girls">
+              Join Jan 21 Session
             </Button>
           </Col>
         </Row>
