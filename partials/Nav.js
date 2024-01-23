@@ -105,7 +105,7 @@ export const Navigation = () => {
                 className="align-items-center"
               >
                 <Button variant="primary" size="small">
-                  Share your Feedback!
+                  Survey
                 </Button>
               </Nav.Link>
             </Nav>
