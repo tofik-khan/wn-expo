@@ -99,13 +99,13 @@ export const Navigation = () => {
                 Contact Us
               </StyledLink>
               <Nav.Link
-                href="https://docs.google.com/forms/d/e/1FAIpQLSdUWVwngRILWugN5eeVRO4yQHtpy7s4O1aMDCLvTabLKHp92g/viewform"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfDBeguY1H7tPvko8ae4bg4vYRG5d8FLBEq61BCqyP-DrRSFQ/viewform"
                 target="_blank"
                 rel="noreferrer"
                 className="align-items-center"
               >
                 <Button variant="primary" size="small">
-                  Register
+                  Share your Feedback!
                 </Button>
               </Nav.Link>
             </Nav>
