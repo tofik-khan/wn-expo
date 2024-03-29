@@ -6,6 +6,7 @@ import Hamburger from "hamburger-react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import ExpoLogo from "/public/images/expo-logo.png";
 import Button from "../components/Button";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
 const StyledNavBar = styled(Navbar)`
   background-color: #2457b2;
@@ -78,18 +79,8 @@ export const Navigation = () => {
           </Navbar.Toggle>
           <Navbar.Collapse className="justify-content-end align-items-center">
             <Nav>
-              <StyledLink href="/boys">Boys Agenda</StyledLink>
-              <StyledLink href="/girls">Girls Agenda</StyledLink>
               <StyledLink href="/speakers">Speakers</StyledLink>
               <StyledLink href="/faq">FAQs</StyledLink>
-              <StyledLink
-                href="https://www.youtube.com/playlist?list=PLTpYqC-wRAALgWS-xkbf0-IkO_S_22iv4"
-                target="_blank"
-                rel="noreferrer"
-                className="align-items-center"
-              >
-                2023 Recording
-              </StyledLink>
               <StyledLink
                 href="https://www.waqfenau.us/contact-us/"
                 target="_blank"
@@ -98,16 +89,34 @@ export const Navigation = () => {
               >
                 Contact Us
               </StyledLink>
-              <Nav.Link
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfDBeguY1H7tPvko8ae4bg4vYRG5d8FLBEq61BCqyP-DrRSFQ/viewform"
-                target="_blank"
-                rel="noreferrer"
-                className="align-items-center"
+              <NavDropdown
+                title={
+                  <div
+                    style={{
+                      display: "inline-block",
+                      color: "white",
+                      fontSize: "16px",
+                      fontWeight: "bold",
+                      padding: "4px 8px",
+                    }}
+                  >
+                    Archives
+                  </div>
+                }
+                id="nav-info-dropdown"
               >
-                <Button variant="primary" size="small">
-                  Survey
-                </Button>
-              </Nav.Link>
+                <NavDropdown.Item
+                  href="https://www.youtube.com/playlist?list=PLTpYqC-wRAALgWS-xkbf0-IkO_S_22iv4"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  2023
+                </NavDropdown.Item>
+                <NavDropdown.Item href="/archives/2024/day1">
+                  2024 (Day 1)
+                </NavDropdown.Item>
+                <NavDropdown.Item href="/faq">2024 (Day 2)</NavDropdown.Item>
+              </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>

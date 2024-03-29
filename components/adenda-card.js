@@ -136,16 +136,7 @@ export const AgendaCard = ({
         <div>
           <StyledTimeContainer>
             <Time>{`${startTime} - ${endTime}`}</Time>
-            {isLive(`${date} ${startTime}`, time, `${date} ${endTime}`) && (
-              <Live />
-            )}
           </StyledTimeContainer>
-          {room && (
-            <Chip>
-              <DoorOpen />
-              {room}
-            </Chip>
-          )}
           <Title>{title}</Title>
           <Description>{description}</Description>
         </div>

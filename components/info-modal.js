@@ -20,24 +20,14 @@ const StyledThumbnail = styled.img`
 
 const SessionLiveContainer = ({ content }) => {
   return content.link !== "" ? (
-    isLive(
-      `${content.date} ${content.startTime}`,
-      currentTime(),
-      `${content.date} ${content.endTime}`
-    ) ? (
-      <Button
-        variant={"primary"}
-        href={content.link}
-        target="_blank"
-        rel="noreferrer"
-      >
-        Join Now!
-      </Button>
-    ) : (
-      <LightText size={"md"}>
-        This session is not live yet, please check back here when it goes live
-      </LightText>
-    )
+    <Button
+      variant={"primary"}
+      href={content.link}
+      target="_blank"
+      rel="noreferrer"
+    >
+      View Recording!
+    </Button>
   ) : (
     <></>
   );
@@ -65,17 +55,9 @@ export const InfoModal = ({ show, onHide, content }) => {
             {content.startTime} - {content.endTime}
           </div>
           {content.title}
-          <br />
-          <SessionLiveContainer content={content} />
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        {content.room && (
-          <Chip>
-            <DoorOpen />
-            {content.room}
-          </Chip>
-        )}
         <StyledThumbnail src={content.thumbnail} />
         <div
           style={{
