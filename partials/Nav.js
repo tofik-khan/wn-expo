@@ -115,7 +115,9 @@ export const Navigation = () => {
                 <NavDropdown.Item href="/archives/2024/day1">
                   2024 (Day 1)
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/faq">2024 (Day 2)</NavDropdown.Item>
+                <NavDropdown.Item href="/archives/2024/day2">
+                  2024 (Day 2)
+                </NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
