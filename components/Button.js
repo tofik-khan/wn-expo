@@ -35,6 +35,7 @@ const SharedStyle = css`
   color: ${(props) => (props.variant === "primary" ? "white" : "#6D6D6D")};
   font-weight: bold;
   font-size: 16px;
+  text-align: center;
 
   /* States */
   &:hover {

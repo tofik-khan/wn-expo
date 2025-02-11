@@ -47,10 +47,8 @@ export const Hero = () => {
         style={{ maxWidth: "800px", margin: "auto" }}
       >
         <Col className="justify-content-center text-center">
-          <WhiteText size={"sm"}>
-            January 20th, 2023 (Boys) & January 21st, 2023 (Girls)
-          </WhiteText>
-          <h1 className="pb-3">2024 WAQF-E-NAU USA CAREER EXPO</h1>
+          <WhiteText size={"sm"}>April 19th &amp; 20th, 2025</WhiteText>
+          <h1 className="pb-3">2025 WAQF-E-NAU USA CAREER EXPO</h1>
           <WhiteText size={"md"} className="pb-5">
             Learn about different careers that a Waqf-e-Nau can pick to serve
             his/her faith. Open to Non-Waqifeen-e-Nau as well!
@@ -61,12 +59,13 @@ export const Hero = () => {
             </a>{" "}
             if you have any questions
           </WhiteText>
-          <CountdownTimer date={"Jan 20 2024 10:00:00 GMT-0500"} />
+          <CountdownTimer date={"Apr 18 2025 11:00:00 GMT-0500"} />
         </Col>
         <StyledOverlayContainer>
           <WhiteText size={"md"}>
             Register now for our two-day event! In-person attendance is
-            preferred, with boys on January 20th and girls on January 21st.
+            preferred.
+            <br />
             Ideal for ages 12-26.
           </WhiteText>
         </StyledOverlayContainer>

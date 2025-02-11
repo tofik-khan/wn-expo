@@ -34,11 +34,12 @@ const Page = () => {
   const [loaded, updateLoaded] = useState(false);
   const [showModal, updateShowModal] = useState(false);
   const [modalBody, updateModalBody] = useState({});
-  const [startTime, udpateStartTime] = useState("");
-  const [endTime, updateEndTime] = useState("");
 
   useEffect(() => {
-    fetch("/api/sessions/girls")
+    fetch("/api/getDataFromSheet", {
+      method: "POST",
+      body: JSON.stringify({ sheet: "2025-Day1", range: "A:J" }),
+    })
       .then((response) => response.json())
       .then((response) => updateSessions(processSessionData(response.data)))
       .then(() => updateLoaded(true));
@@ -54,34 +55,22 @@ const Page = () => {
       <StyledContainer className="py-5">
         <Row className="py-3">
           <Col className="text-center">
-            <h1>2024 Waqf-e-Nau Expo</h1>
-            <LightText size="lg">Girls</LightText>
+            <h1>2025 Waqf-e-Nau Expo | Day 1</h1>
+            <LightText size="lg">Boys on-site / Girls on Zoom</LightText>
             <p>
-              Saturday, January 21<sup>st</sup>, 2024
+              Saturday, April 19<sup>th</sup>, 2025
             </p>
           </Col>
         </Row>
       </StyledContainer>
-      <Container>
+      <Container className="py-3">
         <Row>
           <Col>
             <h2>Agenda</h2>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <label htmlFor="startTime">StartTime</label>
-            <input
-              type="text"
-              id="startTime"
-              onChange={(e) => udpateStartTime(e.target.value)}
-            />
-            <label htmlFor="endTime">endTime</label>
-            <input
-              type="text"
-              id="endTime"
-              onChange={(e) => updateEndTime(e.target.value)}
-            />
+            <LightText>
+              This is a tentative schedule and may change prior to the start of
+              the Expo
+            </LightText>
           </Col>
         </Row>
         <Row>
@@ -94,9 +83,9 @@ const Page = () => {
                     title={session.title}
                     description={session.description}
                     thumbnail={session.thumbnail}
-                    date={"2023-12-16"}
-                    startTime={startTime}
-                    endTime={endTime}
+                    date={session.date}
+                    startTime={session.startTime}
+                    endTime={session.endTime}
                     presenters={session.presenters}
                     room={session.room}
                     onClick={() => {
@@ -113,7 +102,7 @@ const Page = () => {
       <InfoModal
         show={showModal}
         onHide={() => updateShowModal(false)}
-        content={{ ...modalBody, startTime, endTime, date: "2023-12-16" }}
+        content={modalBody}
       />
     </>
   );
