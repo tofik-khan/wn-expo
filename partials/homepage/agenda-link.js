@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import { Container, Row, Col } from "react-bootstrap";
+import Button from "../../components/Button";
 
 const LinkContainer = styled.div`
   display: flex;
@@ -34,15 +35,20 @@ export const AgendaLinks = () => {
         <Row className="justify-content-center text-center py-3">
           <Col>
             <h2>Agenda</h2>
-            <p>
-              Click on the icon to join Expo on Zoom &amp; view agenda. Please
-              Attend both days
-            </p>
+            <p>Attend Both days &amp; Join Expo on Zoom</p>
           </Col>
         </Row>
         <LinkContainer>
-          <LinkButton image="/images/graphics/boy.jpeg" href="/boys" />
-          <LinkButton image="/images/graphics/girl.jpg" href="/girls" />
+          <Button variant="secondary">
+            Day1
+            <br />
+            Live from NVA
+          </Button>
+          <Button variant="secondary">
+            Day2
+            <br />
+            Live from SVA
+          </Button>
         </LinkContainer>
       </Container>
     </>

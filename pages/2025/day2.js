@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 import { AgendaCard } from "../../components/adenda-card";
 import { InfoModal } from "../../components/info-modal";
@@ -7,7 +8,6 @@ import { Navigation } from "../../partials/Nav";
 import { Loading } from "../../partials/agenda/loading";
 import { Footer } from "../../partials/footer";
 import { LightText } from "../../components/Text";
-import styled from "styled-components";
 
 const StyledContainer = styled(Container)`
   display: flex;
@@ -36,7 +36,10 @@ const Page = () => {
   const [modalBody, updateModalBody] = useState({});
 
   useEffect(() => {
-    fetch("/api/sessions/girls")
+    fetch("/api/getDataFromSheet", {
+      method: "POST",
+      body: JSON.stringify({ sheet: "2025-Day2", range: "A:J" }),
+    })
       .then((response) => response.json())
       .then((response) => updateSessions(processSessionData(response.data)))
       .then(() => updateLoaded(true));
@@ -52,19 +55,22 @@ const Page = () => {
       <StyledContainer className="py-5">
         <Row className="py-3">
           <Col className="text-center">
-            <h1>2024 Waqf-e-Nau Expo</h1>
+            <h1>2025 Waqf-e-Nau Expo | Day 2</h1>
             <LightText size="lg">Girls on-site / Boys on Zoom</LightText>
             <p>
-              Sunday, January 21<sup>st</sup>, 2024
+              Sunday, April 20<sup>th</sup>, 2025
             </p>
           </Col>
         </Row>
       </StyledContainer>
-      <Container className="py-5">
+      <Container className="py-3">
         <Row>
           <Col>
             <h2>Agenda</h2>
-            <LightText>Please scroll down to view live tracks</LightText>
+            <LightText>
+              This is a tentative schedule and may change prior to the start of
+              the Expo
+            </LightText>
           </Col>
         </Row>
         <Row>
@@ -93,7 +99,6 @@ const Page = () => {
         </Row>
       </Container>
       <Footer />
-
       <InfoModal
         show={showModal}
         onHide={() => updateShowModal(false)}

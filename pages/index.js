@@ -31,11 +31,6 @@ export const Page = () => {
               Click to Register
             </Button>
           </Col>
-          <Col md={"auto"} className="text-center py-3">
-            <Button variant={"secondary"} href="/boys">
-              Join Jan 20 Session
-            </Button>
-          </Col>
         </Row>
       </Container>
       <InfoContainer />

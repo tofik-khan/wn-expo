@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import Image from "next/image";
 import { Container, Row, Col } from "react-bootstrap";
 import { AgendaCard } from "../../components/adenda-card";
-import { InfoModal } from "../../components/info-modal";
 import { processSessionData } from "../../helpers/api-functions";
 import { Navigation } from "../../partials/Nav";
 import { Loading } from "../../partials/agenda/loading";
 import { Footer } from "../../partials/footer";
-import ExpoLogo from "/public/images/expo-logo.png";
 import { LightText } from "../../components/Text";
+import styled from "styled-components";
+import { ArchiveModal } from "../../components/archive-modal";
 
 const StyledContainer = styled(Container)`
   display: flex;
@@ -38,7 +36,7 @@ const Page = () => {
   const [modalBody, updateModalBody] = useState({});
 
   useEffect(() => {
-    fetch("/api/sessions/boys")
+    fetch("/api/sessions/girls")
       .then((response) => response.json())
       .then((response) => updateSessions(processSessionData(response.data)))
       .then(() => updateLoaded(true));
@@ -55,14 +53,14 @@ const Page = () => {
         <Row className="py-3">
           <Col className="text-center">
             <h1>2024 Waqf-e-Nau Expo</h1>
-            <LightText size="lg">Boys on-site / Girls on Zoom</LightText>
+            <LightText size="lg">Girls on-site / Boys on Zoom</LightText>
             <p>
-              Saturday, January 20<sup>th</sup>, 2024
+              Sunday, January 21<sup>st</sup>, 2024
             </p>
           </Col>
         </Row>
       </StyledContainer>
-      <Container className="py-3">
+      <Container className="py-5">
         <Row>
           <Col>
             <h2>Agenda</h2>
@@ -95,7 +93,8 @@ const Page = () => {
         </Row>
       </Container>
       <Footer />
-      <InfoModal
+
+      <ArchiveModal
         show={showModal}
         onHide={() => updateShowModal(false)}
         content={modalBody}
