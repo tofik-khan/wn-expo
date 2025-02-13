@@ -42,12 +42,12 @@ export const AgendaLinks = () => {
           <Button variant="secondary">
             Day1
             <br />
-            Live from NVA
+            April 19<sup>th</sup> 2025
           </Button>
           <Button variant="secondary">
             Day2
             <br />
-            Live from SVA
+            April 20<sup>th</sup> 2025
           </Button>
         </LinkContainer>
       </Container>
