@@ -41,8 +41,7 @@ export const InfoContainer = () => {
             <StyledBlock>
               <StyledHighlight>2 DAYS</StyledHighlight>
               <StyledSubText>
-                April 19th - Boys NVA <br />
-                April 20th - Girls SVA
+                April 19<sup>th</sup> &amp; 20<sup>th</sup>
               </StyledSubText>
             </StyledBlock>
           </Col>
