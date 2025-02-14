@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Navigation } from "../partials/Nav";
 import { Hero } from "../partials/homepage/hero";
 import { InfoContainer } from "../partials/homepage/info";
@@ -13,6 +13,17 @@ import Button from "../components/Button";
 import { WhatsNewSection } from "../partials/homepage/whats-new";
 
 export const Page = () => {
+  /**
+   * Page Analytics
+   */
+  useEffect(() => {
+    fetch(
+      `https://api.counterapi.dev/v1/wn-expo-site-${
+        window.location.hostname
+      }/pagelocation${window.location.pathname.replace(/\//, ".")}/up`
+    );
+  }, []);
+
   return (
     <>
       <Navigation />

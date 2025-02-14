@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Accordion, Container, Row, Col } from "react-bootstrap";
 import { Navigation } from "../partials/Nav";
 import { Footer } from "../partials/footer";
@@ -15,6 +15,13 @@ const YellowBgText = styled.span`
 `;
 
 const Page = () => {
+  useEffect(() => {
+    fetch(
+      `https://api.counterapi.dev/v1/wn-expo-site-${
+        window.location.hostname
+      }/pagelocation${window.location.pathname.replace(/\//, ".")}/up`
+    );
+  }, []);
   return (
     <>
       <Navigation />
@@ -29,26 +36,71 @@ const Page = () => {
         <Row>
           <Col>
             <Accordion>
+              <Accordion.Item eventKey="24">
+                <Accordion.Header>
+                  What's new in 2025 Career Expo?
+                </Accordion.Header>
+                <Accordion.Body>
+                  <ul>
+                    <li>
+                      Expo is now a two-day event for both Male and Female
+                      participants attending in-person and over Zoom on both
+                      days.
+                    </li>
+                    <li>
+                      Male will attend in-person at{" "}
+                      <strong>Masjid Mubarik, North Virginia</strong> while
+                      Female participants will attend in-person at{" "}
+                      <strong>Masjid Masroor, South Virginia</strong>.
+                    </li>
+                    <li>
+                      Hazrat Khalifatul Masih (aba) is sending a representative:{" "}
+                      <strong>Missionary Musharaf Ahmed Sahib</strong> of the
+                      International Waqf-e-Nau Department, UK.
+                    </li>
+                    <li>
+                      New Presenters and New Career Tracks are added this year.
+                    </li>
+                    <li>
+                      Exhibition Halls will be in both Mosques for interactive
+                      engagement with presenters and partner organizations.
+                    </li>
+                    <li>
+                      Registration is required for in-person attendees for
+                      logistical planning and printing Expo Pass ahead of time.
+                    </li>
+                    <li>
+                      Each track/session will now be 45 minutes with at least 15
+                      - 20 minutes dedicated towards Q&A.
+                    </li>
+                    <li>
+                      There will be 10-minute breaks between each session.
+                    </li>
+                    <li>
+                      Parents of Waqifeen-e-Nau & Non-Waqifeen-e-Nau are also
+                      welcomed to attend as well.
+                    </li>
+                  </ul>
+                </Accordion.Body>
+              </Accordion.Item>
               <Accordion.Item eventKey="4">
                 <Accordion.Header>
                   How can I join the Expo Virtually?
                 </Accordion.Header>
                 <Accordion.Body>
                   <p>
-                    When Joining the Zoom Sessions, please change your name to
-                    your name and add number of people with you watching
-                    together in parentheses like Ahmed Khan (3). Moreover, there
-                    will be a survey at the end of Expo that needs to be filled
-                    out.
+                    No registration is required to join Virtually. When joining
+                    the Zoom Sessions, please change your name to your name and
+                    add the number of people with you watching together in
+                    parentheses like Ahmed Khan (3). Moreover, there will be a
+                    survey at the end of Expo that needs to be filled out.
                   </p>
                   <h3>Step # 1</h3>
                   <p>
                     {" "}
-                    On Saturday, 20th January, click on "Boys Agenda" from
-                    theTop Menu or from the middle part of the Home Page the
-                    "Male" icon. On Sunday, 21st January, click on "Girls
-                    Agenda" from the Top Menu or from the middle part of the
-                    Home Page the "Female" icon.
+                    Click on the Day 1 (April 19) or Day 2 Agenda (April 20) on
+                    expo.waqfenau.us either on the Top Menu or the links in the
+                    middle of the page:
                   </p>
                   <Image
                     src="/images/faqs/step-1.png"
@@ -99,7 +151,7 @@ const Page = () => {
                   Key purpose of the Career Expo is to introduce Waqifeen-e-Nau,
                   parents and attendees to the careers Hazrat Khalifatul Masih
                   (aba) has emphasized upon to meet the growing needs of
-                  Jama'at.
+                  Jama&apos;at.
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="1">
@@ -109,17 +161,16 @@ const Page = () => {
                 <Accordion.Body>
                   <ul>
                     <li>
-                      Saturday, January 20th, 2024 and Sunday, January 21st,
-                      2024{" "}
+                      Saturday, April 19th, 2025 and Sunday, April 20th, 2025{" "}
                     </li>
                     <li>
                       <strong>In-Person</strong>
                       <br />
-                      Masjid Masroor, South Virginia for boys & fathers on
-                      Saturday, January 20th, 2024
+                      In Person Girls Session : Masjid Masroor, South Virginia
+                      for Saturday, April 19th and Sunday, April 20th, 2025
                       <br />
-                      Masjid Masroor, South Virginia for girls & mothers on
-                      Sunday, January 21st, 2024
+                      In Person Boys Session : Masjid Mubarak, North Virginia
+                      for Saturday, April 19th and Sunday, April 20th, 2025
                     </li>
                     <li>
                       <strong>Virtually (Zoom)</strong>
@@ -138,16 +189,8 @@ const Page = () => {
                   Who is leading the closing sessions, Inshallah
                 </Accordion.Header>
                 <Accordion.Body>
-                  <ul>
-                    <li>
-                      Respected Ameer Sahib USA will inshaAllah preside over the
-                      closing session on January 20, 2024
-                    </li>
-                    <li>
-                      Respected Sadr Sahiba Lajna USA will inshaAllah preside
-                      over the closing session on January 21, 2024
-                    </li>
-                  </ul>
+                  Special Guest from UK, Respected Musharaf Sahib
+                  -Representative of Hazrat Khalifatul Masih V (aba)
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="3">
@@ -157,19 +200,14 @@ const Page = () => {
                 <Accordion.Body>
                   <ul>
                     <li>
-                      Please refer to the agenda for Boys (Jan 20th) and Girls
-                      (Jan 21) for the detailed information on topics, speakers
-                      and timings.
+                      Please refer to the agenda for Day1 &amp; Day2 for the
+                      detailed information on topics, speakers and timings.
                     </li>
                     <li>
                       There are four concurrent sessions/tracks happening at the
                       same time, allowing attendees to pick which track they
                       want to attend. Some tracks are repeated giving an
                       opportunity for attendees to prioritize the sessions.
-                    </li>
-                    <li>
-                      Respected Ameer Sahib USA will join the closing session on
-                      January 20, 2024
                     </li>
                     <li>
                       Respected Sadr Sahiba Lajna USA will join the closing
@@ -210,9 +248,7 @@ const Page = () => {
                 <Accordion.Body>
                   <Button
                     variant={"primary"}
-                    href={
-                      "https://docs.google.com/forms/d/e/1FAIpQLSdUWVwngRILWugN5eeVRO4yQHtpy7s4O1aMDCLvTabLKHp92g/viewform"
-                    }
+                    href={"https://forms.gle/7gEFGU1v8nntyLXTA"}
                   >
                     Registeration Form
                   </Button>
@@ -220,13 +256,12 @@ const Page = () => {
               </Accordion.Item>
               <Accordion.Item eventKey="8">
                 <Accordion.Header>
-                  What is the benefit of attending Expo in-person at Masjid
-                  Masroor?
+                  What is the benefit of attending Expo in-person?
                 </Accordion.Header>
                 <Accordion.Body>
-                  Attending the Expo in-person at South Virginia will allow you
-                  to engage with those presenters and sponsors who are in-person
-                  along with interacting with peers &amp; friends.
+                  Attending the Expo in-person will allow you to engage with
+                  those presenters and sponsors who are in-person along with
+                  interacting with peers &amp; friends.
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="9">
@@ -235,8 +270,6 @@ const Page = () => {
                 </Accordion.Header>
                 <Accordion.Body>
                   Yes. Parents are encouraged to join both in-person and online.
-                  Fathers may join in-person on January 20th, 2024 while mothers
-                  may join in-person on January 21st, 2024.
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="10">
@@ -255,7 +288,7 @@ const Page = () => {
                 <Accordion.Body>
                   Ideal age of the Career Expo is 12 - 26 years old. However,
                   older and some younger Waqifeen-e-Nau may join as well. Having
-                  said that, any Waqf-e-Nau younger than 12 who is attending
+                  said that, any Waqf-e-Nau younger than 10 who is attending
                   in-person, needs a prior approval from the Waqf-e-Nau
                   Department. Please use the contact us menu to reach out to us.
                 </Accordion.Body>
@@ -271,44 +304,44 @@ const Page = () => {
                   contact us menu to reach out to us.
                 </Accordion.Body>
               </Accordion.Item>
-              <Accordion.Item eventKey="13">
-                <Accordion.Header>
-                  Can girls attend the online session on January 20th, 2024 as
-                  well?
-                </Accordion.Header>
-                <Accordion.Body>
-                  Yes. Most of the sessions are for both genders, however, there
-                  are few topics that are geared towards respective genders.
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="14">
-                <Accordion.Header>
-                  Can boys attend the online session on January 21st, 2024 as
-                  well:?
-                </Accordion.Header>
-                <Accordion.Body>
-                  Yes. Most of the sessions are for both genders, however, there
-                  are few topics that are geared towards respective genders.
-                </Accordion.Body>
-              </Accordion.Item>
               <Accordion.Item eventKey="15">
                 <Accordion.Header>
                   If attending in-person, when should I plan to arrive for boys
-                  program (Jan 20)?
+                  program at Masjid Mubarik?
                 </Accordion.Header>
                 <Accordion.Body>
-                  Expo starts at 10 AM EST sharp. Ideally you should arrive by 9
-                  AM and join us for breakfast.
+                  <ul>
+                    <li>
+                      Expo starts at 11 AM EST sharp on Saturday, April 19th.
+                      Ideally you should arrive by 9:45 AM for check-in and join
+                      us for breakfast.
+                    </li>
+                    <li>
+                      On Sunday, April 20th, the check-in is at 8:00 AM and the
+                      first session is at 9:00 AM with the closing session at
+                      12:00 PM.
+                    </li>
+                  </ul>
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="16">
                 <Accordion.Header>
                   If attending in-person, when should I plan to arrive for girls
-                  program (Jan 21)?
+                  program at Masjid Masroor?
                 </Accordion.Header>
                 <Accordion.Body>
-                  Expo starts at 10 AM EST sharp. Ideally you should arrive by 9
-                  AM and join us for breakfast.
+                  <ul>
+                    <li>
+                      Expo starts at 11 AM EST sharp on Saturday, April 19th.
+                      Ideally you should arrive by 9:45 AM for check-in and join
+                      us for breakfast.
+                    </li>
+                    <li>
+                      On Sunday, April 20th, the check-in is at 8:00 AM and the
+                      first session is at 9:00 AM with the closing session at
+                      12:00 PM
+                    </li>
+                  </ul>
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="17">
@@ -316,19 +349,31 @@ const Page = () => {
                   Is there any travel subsidy available if I am coming to Expo?
                 </Accordion.Header>
                 <Accordion.Body>
-                  <li>
-                    Unfortunately, there is no individual travel subsidy
-                    available for Expo. You may reach out to National Secretary
-                    Sahib Waqf-e-Nau for further guidance at{" "}
-                    <a href="mailto:national.wn@ahmadiyya.us">
-                      national.wn@ahmadiyya.us
-                    </a>
-                  </li>
-                  <li>
-                    Please reach out to your Local Secretary Waqf-e-Nau or Local
-                    Muavina Sadr for Waqifaat for group travel as there is some
-                    limited subsidy available for group travel.{" "}
-                  </li>
+                  <ul>
+                    <li>
+                      Group Travels are being planned for both Boys & Girls from
+                      your Region/Jama&apos;at, so please plan to come with
+                      them.
+                    </li>
+                    <li>
+                      There is a very limited individual travel subsidy
+                      available for Expo. You may reach out to National
+                      Secretary Sahib Waqf-e-Nau for further guidance at{" "}
+                      <a href="mailto:national.wn@ahmadiyya.us">
+                        national.wn@ahmadiyya.us
+                      </a>
+                      .
+                    </li>
+                    <li>
+                      In order to receive a subsidy, you need prior approval and
+                      must have requested it at least 7 weeks before the Career
+                      Expo.
+                    </li>
+                    <li>
+                      Please reach out to your Local Secretary Waqf-e-Nau or
+                      Local Muavina Sadr for Waqifaat for group travel.
+                    </li>
+                  </ul>
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="18">
@@ -336,16 +381,30 @@ const Page = () => {
                   Is there any accommodation provided?
                 </Accordion.Header>
                 <Accordion.Body>
-                  <li>
-                    Overnight accommodation will be available for Waqifeen-e-Nau
-                    boys at the Masjid if accompanied by a parent, a chaperone,
-                    a local or a regional secretary Waqf-e-Nau.
-                  </li>
-                  <li>
-                    Waqifat-e-Nau coming in groups should reach out to National
-                    Muavina Sadr for Waqifat-e-Nau at{" "}
-                    <a href="waqifat@lajnausa.net">waqifat@lajnausa.net</a>{" "}
-                  </li>
+                  <ul>
+                    <li>
+                      Overnight accommodation will be available for
+                      Waqifeen-e-Nau boys at Masjid Mubarik if accompanied by a
+                      parent, a chaperone, a local, or a regional Secretary
+                      Waqf-e-Nau.
+                    </li>
+                    <li>
+                      Waqifat-e-Nau would also be provided accommodation if
+                      registered well in advance.
+                    </li>
+                    <li>
+                      Those coming in groups should reach out to National
+                      Muavina Sadr for Waqifat-e-Nau at{" "}
+                      <a href="mailto:waqifat@lajnausa.net">
+                        waqifat@lajnausa.net
+                      </a>{" "}
+                      and Waqf-e-Nau Department at{" "}
+                      <a href="mailto:wn.events@ahmadiyya.us">
+                        wn.events@ahmadiyya.us
+                      </a>
+                      .
+                    </li>
+                  </ul>
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="19">
@@ -353,7 +412,9 @@ const Page = () => {
                   Which airport should I fly into?
                 </Accordion.Header>
                 <Accordion.Body>
-                  You may fly into IAD and DCA. BWI is also an option.
+                  You may fly into IAD and DCA. BWI is also an option. However,
+                  pickup and drop-off will be offered from IAD only and case by
+                  case form DCA.
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="20">
@@ -371,15 +432,9 @@ const Page = () => {
                   When should I plan to travel back (if attending in-person)?
                 </Accordion.Header>
                 <Accordion.Body>
-                  <li>
-                    Closing session with respected Ameer Sahib on Saturday,
-                    January 20st will approximately end around 5:30 pm EST.
-                  </li>
-                  <li>
-                    Closing session with respected Sadr Sahiba Lajna USA on
-                    Sunday, January 21st will approximately end around 4:30 pm
-                    EST.
-                  </li>
+                  Closing session with respected Musharaf Sahib on Sunday, April
+                  20st will approximately end around 1:30 PM EST. You should
+                  plan to leave after that.
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="22">
@@ -398,32 +453,9 @@ const Page = () => {
                 <Accordion.Body>
                   Yes. You should attend the entire program as you may not be
                   aware of certain careers that may interest you. You would also
-                  have an opportunity to listen to respected Ameer Sahib USA and
-                  Sadr Sahiba Lajna USA.
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="24">
-                <Accordion.Header>
-                  What's new in 2024 Career Expo?
-                </Accordion.Header>
-                <Accordion.Body>
-                  <li>
-                    No registration is required to get a unique link for your
-                    own session if watching over Zoom.
-                  </li>
-                  <li>
-                    Each track/session will now be 45 minutes with at least 15 -
-                    20 minutes dedicated towards Q&amp;A
-                  </li>
-                  <li>There will be 10-minutes breaks between each session</li>
-                  <li>
-                    Our mothers and daughters can now attend in-person on
-                    January 21st, 2024
-                  </li>
-                  <li>
-                    Expo Website is redesigned with an ease of use in mind for
-                    our members.
-                  </li>
+                  have an opportunity to listen to respected Musharaf Ahmed
+                  Sahib from the UK, the representative of Hazrat Khalifatul
+                  Masih (aba).
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
