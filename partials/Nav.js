@@ -122,7 +122,7 @@ export const Navigation = () => {
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link
-                href="https://docs.google.com/forms/d/e/1FAIpQLSdUWVwngRILWugN5eeVRO4yQHtpy7s4O1aMDCLvTabLKHp92g/viewform"
+                href="https://forms.gle/C36uhH1ykfDgvqFs8"
                 target="_blank"
                 rel="noreferrer"
                 className="align-items-center"
