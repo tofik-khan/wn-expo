@@ -27,7 +27,7 @@ export const Page = () => {
           <Col md={"auto"} className="text-center py-3">
             <Button
               variant={"primary"}
-              href="https://docs.google.com/forms/d/e/1FAIpQLSdUWVwngRILWugN5eeVRO4yQHtpy7s4O1aMDCLvTabLKHp92g/viewform"
+              href="https://forms.gle/C36uhH1ykfDgvqFs8"
             >
               Click to Register
             </Button>

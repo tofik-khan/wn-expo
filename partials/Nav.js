@@ -81,7 +81,7 @@ export const Navigation = () => {
             <Nav>
               <StyledLink href="/2025/day1">Day1 Agenda</StyledLink>
               <StyledLink href="/2025/day2">Day2 Agenda</StyledLink>
-              <StyledLink href="/2025/speakers">Speakers</StyledLink>
+              {/* <StyledLink href="/2025/speakers">Speakers</StyledLink> */}
               <StyledLink href="/faq">FAQs</StyledLink>
               <StyledLink
                 href="https://www.waqfenau.us/contact-us/"
