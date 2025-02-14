@@ -2,17 +2,14 @@ import React, { useEffect } from "react";
 import { Accordion, Container, Row, Col } from "react-bootstrap";
 import { Navigation } from "../partials/Nav";
 import { Footer } from "../partials/footer";
-import styled from "styled-components";
 import Button from "../components/Button";
 import Image from "next/image";
 
-const YellowBgText = styled.span`
-  background-color: #6ccff6;
-  padding-left: 12px;
-  padding-right: 12px;
-
-  border-radius: 8px;
-`;
+const captureAccordionOpen = (id) => {
+  fetch(
+    `https://api.counterapi.dev/v1/wn-expo-site-${window.location.hostname}/faq-${id}/up`
+  );
+};
 
 const Page = () => {
   useEffect(() => {
@@ -37,7 +34,7 @@ const Page = () => {
           <Col>
             <Accordion>
               <Accordion.Item eventKey="24">
-                <Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("24")}>
                   What's new in 2025 Career Expo?
                 </Accordion.Header>
                 <Accordion.Body>
@@ -84,7 +81,7 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="4">
-                <Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("4")}>
                   How can I join the Expo Virtually?
                 </Accordion.Header>
                 <Accordion.Body>
@@ -144,7 +141,7 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="0">
-                <Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("0")}>
                   What is the Purpose of the Career Expo?
                 </Accordion.Header>
                 <Accordion.Body>
@@ -155,7 +152,7 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="1">
-                <Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("1")}>
                   When &amp; Where will the Expo be held?
                 </Accordion.Header>
                 <Accordion.Body>
@@ -185,7 +182,7 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="2">
-                <Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("2")}>
                   Who is leading the closing sessions, Inshallah
                 </Accordion.Header>
                 <Accordion.Body>
@@ -194,7 +191,7 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="3">
-                <Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("3")}>
                   What is the format of the Expo?
                 </Accordion.Header>
                 <Accordion.Body>
@@ -217,7 +214,7 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="5">
-                <Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("5")}>
                   Can I attend the sessions on both days?
                 </Accordion.Header>
                 <Accordion.Body>
@@ -226,7 +223,9 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="6">
-                <Accordion.Header>Is Registration Required?</Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("6")}>
+                  Is Registration Required?
+                </Accordion.Header>
                 <Accordion.Body>
                   <ul>
                     <li>
@@ -244,7 +243,9 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="7">
-                <Accordion.Header>How do I register?</Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("7")}>
+                  How do I register?
+                </Accordion.Header>
                 <Accordion.Body>
                   <Button
                     variant={"primary"}
@@ -255,7 +256,7 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="8">
-                <Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("8")}>
                   What is the benefit of attending Expo in-person?
                 </Accordion.Header>
                 <Accordion.Body>
@@ -265,7 +266,7 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="9">
-                <Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("9")}>
                   Can parents also attend the Expo?
                 </Accordion.Header>
                 <Accordion.Body>
@@ -273,7 +274,7 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="10">
-                <Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("10")}>
                   Can non-Waqifeen-e-Nau also attend the Expo?
                 </Accordion.Header>
                 <Accordion.Body>
@@ -282,7 +283,7 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="11">
-                <Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("11")}>
                   What is the ideal age group to attend the Expo?
                 </Accordion.Header>
                 <Accordion.Body>
@@ -294,7 +295,7 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="12">
-                <Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("12")}>
                   Can younger or older Waqifeen-e-Nau also attend the Expo?
                 </Accordion.Header>
                 <Accordion.Body>
@@ -305,7 +306,7 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="15">
-                <Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("15")}>
                   If attending in-person, when should I plan to arrive for boys
                   program at Masjid Mubarik?
                 </Accordion.Header>
@@ -325,7 +326,7 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="16">
-                <Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("16")}>
                   If attending in-person, when should I plan to arrive for girls
                   program at Masjid Masroor?
                 </Accordion.Header>
@@ -345,7 +346,7 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="17">
-                <Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("17")}>
                   Is there any travel subsidy available if I am coming to Expo?
                 </Accordion.Header>
                 <Accordion.Body>
@@ -377,7 +378,7 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="18">
-                <Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("18")}>
                   Is there any accommodation provided?
                 </Accordion.Header>
                 <Accordion.Body>
@@ -408,7 +409,7 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="19">
-                <Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("19")}>
                   Which airport should I fly into?
                 </Accordion.Header>
                 <Accordion.Body>
@@ -418,7 +419,7 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="20">
-                <Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("20")}>
                   Is there any transportation from/to airport available?
                 </Accordion.Header>
                 <Accordion.Body>
@@ -428,7 +429,7 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="21">
-                <Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("21")}>
                   When should I plan to travel back (if attending in-person)?
                 </Accordion.Header>
                 <Accordion.Body>
@@ -438,7 +439,7 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="22">
-                <Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("22")}>
                   Will the sessions be recorded?
                 </Accordion.Header>
                 <Accordion.Body>
@@ -447,7 +448,7 @@ const Page = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="23">
-                <Accordion.Header>
+                <Accordion.Header onClick={() => captureAccordionOpen("23")}>
                   Do I need to attend the entire program?
                 </Accordion.Header>
                 <Accordion.Body>
