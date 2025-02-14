@@ -106,6 +106,7 @@ export const Navigation = () => {
                   </div>
                 }
                 id="nav-info-dropdown"
+                className="text-center"
               >
                 <NavDropdown.Item
                   href="https://www.youtube.com/playlist?list=PLTpYqC-wRAALgWS-xkbf0-IkO_S_22iv4"
@@ -125,7 +126,7 @@ export const Navigation = () => {
                 href="https://forms.gle/C36uhH1ykfDgvqFs8"
                 target="_blank"
                 rel="noreferrer"
-                className="align-items-center"
+                className="align-items-center text-center"
               >
                 <Button variant="primary" size="small">
                   Register
