@@ -66,7 +66,7 @@ export const WhatsNewSection = () => {
               <StyledHighlight>Special Announcement</StyledHighlight>
               <StyledSubText>
                 Hazrat Khalifatul Masih (aba) is sending a representative:{" "}
-                <strong>Missionary Musharaf Ahmed Sahib</strong>
+                <strong>Missionary Musharaf Ahmed Sahib </strong>
                 of the International Waqf-e-Nau Department, UK.
               </StyledSubText>
             </StyledBlock>

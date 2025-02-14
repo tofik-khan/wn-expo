@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Link from "next/link";
 import { Container, Row, Col } from "react-bootstrap";
 import Button from "../../components/Button";
 
@@ -10,22 +9,6 @@ const LinkContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 16px;
-`;
-
-const LinkButton = styled(Link)`
-  width: 200px;
-  height: 200px;
-
-  background: url("${(props) => props.image}");
-  background-size: 100%;
-  background-position: center;
-  transition: all 0.3s ease-in-out;
-
-  border-radius: 8px;
-
-  &:hover {
-    background-size: 110%;
-  }
 `;
 
 export const AgendaLinks = () => {
@@ -39,15 +22,15 @@ export const AgendaLinks = () => {
           </Col>
         </Row>
         <LinkContainer>
-          <Button variant="secondary">
+          <Button variant="secondary" href={"/2025/day1"}>
             Day1
             <br />
-            April 19<sup>th</sup> 2025
+            April 19th
           </Button>
-          <Button variant="secondary">
+          <Button variant="secondary" href={"/2025/day2"}>
             Day2
             <br />
-            April 20<sup>th</sup> 2025
+            April 20th
           </Button>
         </LinkContainer>
       </Container>
