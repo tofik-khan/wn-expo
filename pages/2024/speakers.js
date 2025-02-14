@@ -58,6 +58,17 @@ const Page = () => {
       .then(() => updateLoaded(true));
   }, []);
 
+  /**
+   * Page Analytics
+   */
+  useEffect(() => {
+    fetch(
+      `https://api.counterapi.dev/v1/wn-expo-site-${
+        window.location.hostname
+      }/pagelocation${window.location.pathname.replace(/\//, ".")}/up`
+    );
+  }, []);
+
   if (!loaded) {
     return <Loading />;
   }
