@@ -27,7 +27,7 @@ export const Footer = () => {
               />
             </a>
             <div className="py-2 text-italic text-white">
-              &copy; 2023 All rights reserved
+              &copy; {new Date().getFullYear()} All rights reserved
             </div>
           </Col>
           <Col

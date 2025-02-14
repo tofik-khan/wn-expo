@@ -47,11 +47,12 @@ export const Hero = () => {
         style={{ maxWidth: "800px", margin: "auto" }}
       >
         <Col className="justify-content-center text-center">
-          <WhiteText size={"sm"}>April 19th &amp; 20th, 2025</WhiteText>
+          <WhiteText size={"md"}>April 19th &amp; 20th, 2025</WhiteText>
           <h1 className="pb-3">2025 WAQF-E-NAU USA CAREER EXPO</h1>
           <WhiteText size={"md"} className="pb-5">
             Learn about different careers that a Waqf-e-Nau can pick to serve
-            his/her faith. Open to Non-Waqifeen-e-Nau as well!
+            his/her faith based on the instructions of Hazrat Khalifatul Masih V
+            (a.b.a.). Open to Non-Waqifeen-e-Nau as well!
             <br />
             {/* Please contact us at{" "}
             <a style={{ color: "white" }} href="tel:000-000-0000">
