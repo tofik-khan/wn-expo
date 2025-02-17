@@ -52,7 +52,7 @@ const Page = () => {
     fetch(
       `https://api.counterapi.dev/v1/wn-expo-site-${
         window.location.hostname
-      }/pagelocation${window.location.pathname.replace(/\//, ".")}/up`
+      }/pagelocation${window.location.pathname.replace(/\//g, ".")}/up`
     );
   }, []);
 
