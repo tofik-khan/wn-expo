@@ -67,7 +67,7 @@ const Page = () => {
         <Row className="py-3">
           <Col className="text-center">
             <h1>2025 Waqf-e-Nau Expo | Day 1</h1>
-            <LightText size="lg">Boys on-site / Girls on Zoom</LightText>
+            <LightText size="lg">On-site &amp; on Zoom</LightText>
             <p>
               Saturday, April 19<sup>th</sup>, 2025
             </p>
