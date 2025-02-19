@@ -423,9 +423,9 @@ const Page = () => {
                   Is there any transportation from/to airport available?
                 </Accordion.Header>
                 <Accordion.Body>
-                  There is no transportation service from/to the airport
-                  available. However, you may reach out to us for assistance if
-                  you need any & we will inshallah try to accommodate you.
+                  You may fly into IAD and DCA. BWI is also an option. However,
+                  pickup and drop-off will be offered from IAD only and case by
+                  case form DCA.
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="21">
