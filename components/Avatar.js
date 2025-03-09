@@ -58,6 +58,7 @@ const StyledImage = styled.div`
   background-image: url("${(props) => props.image}");
   background-size: cover;
   background-repeat: none;
+  background-position: center;
 `;
 
 const StyledName = styled.p`
