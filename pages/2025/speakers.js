@@ -37,12 +37,19 @@ const AmeerSb = {
     "Respected Ameer Sahib USA will be presiding over the closing session of the Career Expo and will lead the closing Dua (Silent Prayers) on Saturday, January, 20, 2024",
 };
 
+const featuredGuest1 = {
+  name: "Musharaf Ahmed Sahib",
+  subtitle: "Central Waqf-e-Nau Department in UK",
+  image: "/images/presenters/musharaf-ahmed.jpg",
+  description:
+    "Respected Representative of Hazrat Khalifa-tul-Masih V (a.b.a.)",
+};
+
 const SadrLajna = {
   name: "Dhiya Tahira Bakr",
   subtitle: "Sadr Sahiba Lajna USA",
   image: "/images/graphics/girl3.jpg",
-  description:
-    "Respected Sadr Sahiba Lajna USA will be presiding over the closing session of the Career Expo and will lead the closing Dua (Silent Prayers) on Sunday, January, 21, 2024",
+  description: "Respected Sadr Sahiba Lajna USA",
 };
 
 const Page = () => {
@@ -96,11 +103,11 @@ const Page = () => {
         <Row className="justify-content-center">
           <Col md={6} className="d-flex justify-content-center py-3">
             <Avatar
-              name={AmeerSb.name}
-              image={AmeerSb.image}
-              subtitle={AmeerSb.subtitle}
+              name={featuredGuest1.name}
+              image={featuredGuest1.image}
+              subtitle={featuredGuest1.subtitle}
               onClick={() => {
-                updateModalBody(AmeerSb);
+                updateModalBody(featuredGuest1);
                 updateShowModal(true);
               }}
               size={"xxl"}
