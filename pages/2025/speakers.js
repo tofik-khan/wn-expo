@@ -97,7 +97,7 @@ const Page = () => {
       <Container className="py-5">
         <Row className="text-center">
           <Col>
-            <h2>Featured Speakers</h2>
+            <h2>Featured Speaker</h2>
           </Col>
         </Row>
         <Row className="justify-content-center">
@@ -108,18 +108,6 @@ const Page = () => {
               subtitle={featuredGuest1.subtitle}
               onClick={() => {
                 updateModalBody(featuredGuest1);
-                updateShowModal(true);
-              }}
-              size={"xxl"}
-            />
-          </Col>
-          <Col md={6} className="d-flex justify-content-center py-3">
-            <Avatar
-              name={SadrLajna.name}
-              image={SadrLajna.image}
-              subtitle={SadrLajna.subtitle}
-              onClick={() => {
-                updateModalBody(SadrLajna);
                 updateShowModal(true);
               }}
               size={"xxl"}
