@@ -42,7 +42,7 @@ const featuredGuest1 = {
   subtitle: "Central Waqf-e-Nau Department in UK",
   image: "/images/presenters/musharaf-ahmed.jpg",
   description:
-    "Respected Representative of Hazrat Khalifa-tul-Masih V (a.b.a.)",
+    "He graduated from Jamia Ahmadiyya UK in 2015 and has since been serving in various capacities. He is currently posted in the Central Waqf-e-Nau Department (Shoba Waqf-e-Nau Markazia) and is also a member of the National Amila of Majlis Khuddamul Ahmadiyya UK. In addition, he contributes as a presenter on Voice of Islam Radio, where he engages with listeners on a range of important topics.",
 };
 
 const SadrLajna = {
