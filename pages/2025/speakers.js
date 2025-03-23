@@ -42,7 +42,7 @@ const featuredGuest1 = {
   subtitle: "Central Waqf-e-Nau Department in UK",
   image: "/images/presenters/musharaf-ahmed.jpg",
   description:
-    "He graduated from Jamia Ahmadiyya UK in 2015 and has since been serving in various capacities. He is currently posted in the Central Waqf-e-Nau Department (Shoba Waqf-e-Nau Markazia) and is also a member of the National Amila of Majlis Khuddamul Ahmadiyya UK. In addition, he contributes as a presenter on Voice of Islam Radio, where he engages with listeners on a range of important topics.",
+    "He graduated from Jamia Ahmadiyya UK in 2015 and has since been serving in various capacities. He is currently posted in the Central Waqf-e-Nau Department (Shoba Waqf-e-Nau Markazia) and is also a member of the National Amila of Majlis Khuddamul Ahmadiyya UK. In addition, he contributes as a presenter on Voice of Islam Radio, where he engages with listeners on a range of important topics. Musharaf Ahmad Sahib is the official representative of our beloved Huzur (aba) for the 2025 Career Expo.",
 };
 
 const SadrLajna = {
