@@ -41,6 +41,25 @@ const StyledLink = styled(Nav.Link)`
   }
 `;
 
+const StyledPhone = styled.a`
+  all: unset;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 4px;
+
+  margin-left: 20px;
+
+  color: white;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+`;
+
 export const Navigation = () => {
   const [isOpen, setOpen] = useState(false);
 
@@ -134,6 +153,10 @@ export const Navigation = () => {
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
+          <StyledPhone href={"tel:+18005963976"}>
+            <img src="/images/icons/phone.svg" width={20} />
+            1-800-596-3976
+          </StyledPhone>
         </Container>
       </StyledNavBar>
       <StyledSpacer />
