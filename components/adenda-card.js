@@ -116,8 +116,8 @@ export const AgendaCard = ({
   presenters = JSON.parse(JSON.stringify(presenters));
   // Apparently this has to be done before the splice otherwise the splice changes the original array. JS is not JSing.
   const morePresenters =
-    presenters.length > 2 ? `+ ${presenters.length - 2} more` : "";
-  const presentersToDisplay = presenters.splice(0, 2);
+    presenters.length > 3 ? `+ ${presenters.length - 3} more` : "";
+  const presentersToDisplay = presenters.splice(0, 3);
 
   const [time, updateTime] = useState(currentTime());
 
