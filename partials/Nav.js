@@ -153,9 +153,9 @@ export const Navigation = () => {
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
-          <StyledPhone href={"tel:+18005963976"}>
+          <StyledPhone href={"tel:+18555963976"}>
             <img src="/images/icons/phone.svg" width={20} />
-            1-800-596-3976
+            1-855-596-3976
           </StyledPhone>
         </Container>
       </StyledNavBar>
