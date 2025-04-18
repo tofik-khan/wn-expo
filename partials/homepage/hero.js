@@ -60,7 +60,7 @@ export const Hero = () => {
             </a>{" "}
             if you have any questions */}
           </WhiteText>
-          <CountdownTimer date={"Apr 18 2025 11:00:00 GMT-0500"} />
+          <CountdownTimer date={"Apr 19 2025 11:00:00 GMT-0500"} />
         </Col>
         <StyledOverlayContainer>
           <WhiteText size={"md"}>
