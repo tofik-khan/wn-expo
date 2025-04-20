@@ -142,13 +142,13 @@ export const Navigation = () => {
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link
-                href="https://forms.gle/C36uhH1ykfDgvqFs8"
+                href="https://docs.google.com/forms/u/5/d/e/1FAIpQLSdUO9C2Pygo-mcnxAtKRPrGIDIiewK2Ok6CjAVWhz_O00p1tw/viewform"
                 target="_blank"
                 rel="noreferrer"
                 className="align-items-center text-center"
               >
                 <Button variant="primary" size="small">
-                  Register
+                  Expo 2025 Survey
                 </Button>
               </Nav.Link>
             </Nav>
