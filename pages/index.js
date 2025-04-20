@@ -31,16 +31,16 @@ export const Page = () => {
       <Container fluid className="py-5 my-3 bg-light">
         <Row className="justify-content-center text-center py-3">
           <Col>
-            <h2>Register/Join Now!</h2>
+            <h2>Jazakallah for Joining us! Please give us your suggestions</h2>
           </Col>
         </Row>
         <Row className="justify-content-center">
           <Col md={"auto"} className="text-center py-3">
             <Button
               variant={"primary"}
-              href="https://forms.gle/C36uhH1ykfDgvqFs8"
+              href="https://docs.google.com/forms/u/5/d/e/1FAIpQLSdUO9C2Pygo-mcnxAtKRPrGIDIiewK2Ok6CjAVWhz_O00p1tw/viewform"
             >
-              Click to Register
+              Expo 2025 Survey
             </Button>
           </Col>
         </Row>
