@@ -1,0 +1,90 @@
+import {useState} from "react";
+import { Box, Button, Container, Drawer, AppBar as MUIAppBar, Toolbar } from "@mui/material";
+import ExpoLogo from "@/assets/expo-logo.png"
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import MenuIcon from '@mui/icons-material/Menu';
+import { Close } from "@mui/icons-material";
+
+const NavItems = () => (
+  <>
+    <Button>Day 1</Button>
+    <Button>Day 2</Button>
+    <Button>Speakers</Button>
+    <Button>FAQs</Button>
+    <Button>Archives</Button>
+    <Button>Contact Us</Button>
+  </>
+)
+
+const AdminSection = () => (
+  <Button><PersonOutlineIcon /> Admin</Button>
+)
+
+export const AppBar = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <MUIAppBar position="static" sx={{borderRadius: "4px"}} color={"transparent"}>
+
+        {/** Desktop NavBar */}
+        <Container maxWidth="xl" sx={{display: {md: "block", xs: "none"}}}>
+          <Toolbar disableGutters>
+            <Box sx={{
+              display: "flex", 
+              justifyContent: "space-between", 
+              alignContent:"center", 
+              width: "100%"
+            }}>
+              <Box>
+                <img src={ExpoLogo} width={125}/>
+              </Box>
+              <Box sx={{
+                display: "flex", 
+                alignItems: "center", 
+                alignContent: "center", 
+                gap: 4
+              }}>
+                <NavItems />
+              </Box>
+              <Box sx={{
+                display: "flex", 
+                alignItems: "center", 
+                alignContent: "center", 
+              }}>
+                <AdminSection />
+              </Box>
+            </Box>
+          </Toolbar>
+        </Container>
+
+        {/** Mobile NavBar */}
+        <Container sx={{display: {xs: "block", md: "none"}}}>
+          <Toolbar disableGutters>
+            <Box sx={{display: "flex", justifyContent: "space-between", width: "100%"}}>
+              <Box>
+                <img src={ExpoLogo} width={125}/>
+              </Box>
+              <Box sx={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                <Button><MenuIcon onClick={() => setOpen(true)} /></Button>
+              </Box>
+            </Box>
+          </Toolbar>
+        </Container>
+      </MUIAppBar>
+      <Drawer open={open} onClose={() => setOpen(false)}>
+        <Box sx={{display: "flex", justifyContent: "end", width: "100%"}}>
+          <Button><Close sx={{p: 2}} onClick={() => setOpen(false)} /></Button>
+        </Box>
+        <Box sx={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "200px", height: "100%", gap: 4, px: 4}}>
+          <NavItems />
+        </Box>
+        <Box sx={{position: "absolute", bottom: 50, display: "flex", justifyContent: "center", width: "100%"}}>
+          <AdminSection />
+        </Box>
+      </Drawer>
+    </>
+  )
+}
+
+export default AppBar;
