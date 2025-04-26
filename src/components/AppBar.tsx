@@ -4,24 +4,38 @@ import ExpoLogo from "@/assets/expo-logo.png"
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Close } from "@mui/icons-material";
-
-const NavItems = () => (
-  <>
-    <Button>Day 1</Button>
-    <Button>Day 2</Button>
-    <Button>Speakers</Button>
-    <Button>FAQs</Button>
-    <Button>Archives</Button>
-    <Button>Contact Us</Button>
-  </>
-)
-
-const AdminSection = () => (
-  <Button><PersonOutlineIcon /> Admin</Button>
-)
+import { useNavigate } from "react-router";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export const AppBar = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const { loginWithRedirect } = useAuth0();
+
+  const handleLogin = async () => {
+    await loginWithRedirect({
+      appState: {
+        returnTo: "/admin",
+      },
+    });
+  };
+
+  const AdminSection = () => (
+    <Button onClick={handleLogin}>
+      <PersonOutlineIcon /> Admin
+    </Button>
+  );
+
+  const NavItems = () => (
+    <>
+      <Button>Day 1</Button>
+      <Button>Day 2</Button>
+      <Button>Speakers</Button>
+      <Button>FAQs</Button>
+      <Button>Archives</Button>
+      <Button>Contact Us</Button>
+    </>
+  );
 
   return (
     <>
@@ -41,7 +55,10 @@ export const AppBar = () => {
                 width: "100%",
               }}
             >
-              <Box>
+              <Box
+                sx={{ "&:hover": { cursor: "pointer" } }}
+                onClick={() => navigate("/")}
+              >
                 <img src={ExpoLogo} width={125} />
               </Box>
               <Box
@@ -78,7 +95,7 @@ export const AppBar = () => {
               }}
             >
               <Box>
-                <img src={ExpoLogo} width={125} />
+                <img src={ExpoLogo} onClick={() => navigate("/")} width={125} />
               </Box>
               <Box
                 sx={{
@@ -129,6 +146,6 @@ export const AppBar = () => {
       </Drawer>
     </>
   );
-}
+};
 
 export default AppBar;
