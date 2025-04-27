@@ -5,7 +5,7 @@ import { PageAdminDashboard } from "@/pages/admin";
 import { PageHome } from "@/pages/home";
 import { Route, Routes } from "react-router";
 
-export const PublicRouter = () => {
+export const AppRoutes = () => {
   return (
     <>
       {/* Public Routes */}
