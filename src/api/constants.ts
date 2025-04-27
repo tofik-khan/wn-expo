@@ -1,0 +1,1 @@
+export const API_BASE = "https://wn-expo-backend.vercel.app";
