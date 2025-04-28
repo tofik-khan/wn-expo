@@ -4,6 +4,8 @@ import { AdminBar } from "../Nav/AdminBar";
 import { AdminSideBar } from "../Nav/AdminSideBar";
 import { useAdminsQuery } from "@/queries/admin";
 import { useEffect } from "react";
+import { useAppDispatch } from "@/hooks";
+import { setCurrentUser } from "@/reducers/admin";
 
 export const ProtectedLayout = () => {
   const {
@@ -14,6 +16,8 @@ export const ProtectedLayout = () => {
     loginWithRedirect,
   } = useAuth0();
   const { data: adminData, isLoading: isLoadingAdmins } = useAdminsQuery();
+
+  const dispatch = useAppDispatch();
 
   const handleLogin = async () => {
     await loginWithRedirect({
@@ -48,7 +52,7 @@ export const ProtectedLayout = () => {
 
   const currentUser = adminData.find((admin) => admin.email === user.email);
 
-  console.log(currentUser);
+  dispatch(setCurrentUser(currentUser));
 
   return (
     <>
