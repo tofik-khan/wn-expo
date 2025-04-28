@@ -1,4 +1,4 @@
-import { Box, useTheme } from "@mui/material";
+import { Box, Button, Divider, useTheme } from "@mui/material";
 import { useNavigate } from "react-router";
 import ExpoLogo from "@/assets/expo-logo.png";
 
@@ -16,15 +16,31 @@ export const AdminSideBar = () => {
           height: "100vh",
           border: `1px solid ${theme.palette.grey[300]}`,
           display: "flex",
-          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
         }}
       >
         <Box
-          sx={{ "&:hover": { cursor: "pointer" }, mt: 3 }}
+          sx={{ "&:hover": { cursor: "pointer" }, mt: 3, mb: 5 }}
           onClick={() => navigate("/")}
         >
           <img src={ExpoLogo} width={125} height={43} />
         </Box>
+        <Button fullWidth sx={{ my: 1 }}>
+          Sessions
+        </Button>
+        <Button fullWidth sx={{ my: 1 }}>
+          Presenters
+        </Button>
+        <Divider
+          sx={{ my: 3 }}
+          orientation="horizontal"
+          variant="middle"
+          flexItem
+        />
+        <Button fullWidth onClick={() => navigate("/admin/admins")}>
+          Admins
+        </Button>
       </Box>
     </>
   );
