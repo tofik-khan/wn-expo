@@ -58,7 +58,12 @@ export const ProtectedLayout = () => {
     <>
       <AdminSideBar />
       <AdminBar />
-      <main style={{ marginLeft: "200px" }}>
+      <main
+        style={{
+          marginLeft: "200px",
+          padding: "20px",
+        }}
+      >
         <Outlet />
       </main>
     </>
