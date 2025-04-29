@@ -40,7 +40,7 @@ export const ProtectedLayout = () => {
       //pass
     } else {
       const currentUser = adminData.find((admin) => admin.email === user.email);
-      if (!currentUser) {
+      if (!currentUser || !currentUser.isAuthorized) {
         handleLogout();
       }
     }
