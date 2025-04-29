@@ -2,7 +2,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Outlet } from "react-router";
 import { AdminBar } from "../Nav/AdminBar";
 import { AdminSideBar } from "../Nav/AdminSideBar";
-import { useAdminsQuery } from "@/queries/admin";
+import { useAdminImageMutation, useAdminsQuery } from "@/queries/admin";
 import { useEffect } from "react";
 import { useAppDispatch } from "@/hooks";
 import { setCurrentUser } from "@/reducers/admin";
@@ -16,6 +16,14 @@ export const ProtectedLayout = () => {
     loginWithRedirect,
   } = useAuth0();
   const { data: adminData, isLoading: isLoadingAdmins } = useAdminsQuery();
+  const adminImageMutation = useAdminImageMutation();
+
+  const updateAdminImage = async ({ _id, image }) => {
+    await adminImageMutation.mutateAsync({
+      _id,
+      image,
+    });
+  };
 
   const dispatch = useAppDispatch();
 
@@ -36,9 +44,7 @@ export const ProtectedLayout = () => {
   };
 
   useEffect(() => {
-    if (isLoadingAuth || isLoadingAdmins) {
-      //pass
-    } else {
+    if (!(isLoadingAuth || isLoadingAdmins)) {
       const currentUser = adminData.find((admin) => admin.email === user.email);
       if (!currentUser || !currentUser.isAuthorized) {
         handleLogout();
@@ -46,11 +52,20 @@ export const ProtectedLayout = () => {
     }
   });
 
-  if (isLoadingAuth || isLoadingAdmins) return <p>Loading...</p>;
+  if (
+    isLoadingAuth ||
+    isLoadingAdmins ||
+    adminImageMutation.status === "pending"
+  )
+    return <p>Loading...</p>;
 
   if (!isAuthenticated) handleLogin();
 
   const currentUser = adminData.find((admin) => admin.email === user.email);
+
+  // Check if user data in the data base needs to be updated
+  if (currentUser.image !== user.picture)
+    updateAdminImage({ _id: currentUser._id, image: user.picture });
 
   dispatch(setCurrentUser(currentUser));
 
