@@ -1,6 +1,7 @@
 import { Box, Button, Divider, useTheme } from "@mui/material";
 import { useNavigate } from "react-router";
 import ExpoLogo from "@/assets/expo-logo.png";
+import { Logout } from "@mui/icons-material";
 
 export const AdminSideBar = () => {
   const theme = useTheme();
@@ -43,6 +44,19 @@ export const AdminSideBar = () => {
         />
         <Button fullWidth onClick={() => navigate("/admin/admins")}>
           Admins
+        </Button>
+      </Box>
+      <Box
+        sx={{
+          position: "fixed",
+          bottom: "30px",
+          display: "flex",
+          justifyContent: "center",
+          width: "200px",
+        }}
+      >
+        <Button variant="contained" color="error">
+          <Logout /> Logout
         </Button>
       </Box>
     </>
