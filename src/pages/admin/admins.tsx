@@ -1,5 +1,6 @@
-import { useAdminsQuery } from "@/queries/admin"
-import { Avatar, Box, Chip, Typography, useTheme } from "@mui/material";
+import { useAdminMutation, useAdminsQuery } from "@/queries/admin";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Avatar, Box, Button, Chip, Typography, useTheme } from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
@@ -10,6 +11,15 @@ dayjs.extend(advancedFormat);
 export const PageAdmins = () => {
   const { data: admins, isLoading: isLoadingAdmins } = useAdminsQuery();
   const theme = useTheme();
+  const createAdmin = useAdminMutation();
+  const { getAccessTokenSilently, isAuthenticated } = useAuth0();
+
+  const handleCreate = async () => {
+    if (isAuthenticated) {
+      const authToken = await getAccessTokenSilently();
+      createAdmin.mutate({ authToken });
+    }
+  };
 
   const columns: GridColDef[] = [
     {
@@ -103,6 +113,7 @@ export const PageAdmins = () => {
   return (
     <>
       <Typography variant="h2">Admins:</Typography>
+      <Button onClick={handleCreate}>Create</Button>
       <DataGrid
         loading={isLoadingAdmins}
         rows={admins.map((admin, index) => ({ ...admin, index }))}

@@ -23,4 +23,15 @@ export const adminAPI = {
       _id,
     });
   },
+  createAdmin: ({ authToken }): Promise<{ data: string; status: string }> => {
+    return axios.post(
+      `${API_BASE}/admin`,
+      { name: "TEST" },
+      {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      }
+    );
+  },
 };

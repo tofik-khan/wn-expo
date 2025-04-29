@@ -24,3 +24,10 @@ export const useAdminLastLoginMutation = () => {
     mutationFn: ({ _id }: { _id: number }) => API.updateLastLogin({ _id }),
   });
 };
+
+export const useAdminMutation = () => {
+  return useMutation({
+    mutationFn: ({ authToken }: { authToken: string }) =>
+      API.createAdmin({ authToken }),
+  });
+};
