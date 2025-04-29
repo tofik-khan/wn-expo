@@ -7,6 +7,9 @@ import { AuthProvider } from "./AuthProvider.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Provider } from "react-redux";
 import store from "./store.ts";
+import { LicenseInfo } from "@mui/x-license";
+
+LicenseInfo.setLicenseKey(import.meta.env.MUI_X_PRO_LICENSE);
 
 const queryClient = new QueryClient();
 
