@@ -7,9 +7,10 @@ import {
   useAdminLastLoginMutation,
   useAdminsQuery,
 } from "@/queries/admin";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch } from "@/hooks";
 import { setCurrentUser } from "@/reducers/admin";
+import { Alert, Snackbar } from "@mui/material";
 
 export const ProtectedLayout = () => {
   const {
@@ -22,6 +23,7 @@ export const ProtectedLayout = () => {
   const { data: adminData, isLoading: isLoadingAdmins } = useAdminsQuery();
   const adminImageMutation = useAdminImageMutation();
   const adminLastLoginMutation = useAdminLastLoginMutation();
+  const [openLoginSnackbar, setOpenLoginSnackbar] = useState(false);
 
   const updateAdminImage = async ({ _id, image }) => {
     await adminImageMutation.mutateAsync({
@@ -56,6 +58,7 @@ export const ProtectedLayout = () => {
       }
 
       adminLastLoginMutation.mutate({ _id: currentUser._id });
+      setOpenLoginSnackbar(true);
     }
   }, []);
 
@@ -73,6 +76,20 @@ export const ProtectedLayout = () => {
 
   return (
     <>
+      <Snackbar
+        open={openLoginSnackbar}
+        autoHideDuration={6000}
+        onClose={() => setOpenLoginSnackbar(false)}
+      >
+        <Alert
+          onClose={() => setOpenLoginSnackbar(false)}
+          severity="success"
+          variant="filled"
+          sx={{ width: "100%" }}
+        >
+          Login Successful!
+        </Alert>
+      </Snackbar>
       <AdminSideBar />
       <AdminBar />
       <main
