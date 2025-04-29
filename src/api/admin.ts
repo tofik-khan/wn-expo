@@ -16,4 +16,11 @@ export const adminAPI = {
       image,
     });
   },
+  updateLastLogin: ({
+    _id,
+  }): Promise<{ data: MongoDBUpdateResponseType; status: string }> => {
+    return axios.put(`${API_BASE}/admin/lastlogin`, {
+      _id,
+    });
+  },
 };

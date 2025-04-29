@@ -2,7 +2,11 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Outlet } from "react-router";
 import { AdminBar } from "../Nav/AdminBar";
 import { AdminSideBar } from "../Nav/AdminSideBar";
-import { useAdminImageMutation, useAdminsQuery } from "@/queries/admin";
+import {
+  useAdminImageMutation,
+  useAdminLastLoginMutation,
+  useAdminsQuery,
+} from "@/queries/admin";
 import { useEffect } from "react";
 import { useAppDispatch } from "@/hooks";
 import { setCurrentUser } from "@/reducers/admin";
@@ -17,6 +21,7 @@ export const ProtectedLayout = () => {
   } = useAuth0();
   const { data: adminData, isLoading: isLoadingAdmins } = useAdminsQuery();
   const adminImageMutation = useAdminImageMutation();
+  const adminLastLoginMutation = useAdminLastLoginMutation();
 
   const updateAdminImage = async ({ _id, image }) => {
     await adminImageMutation.mutateAsync({
@@ -49,15 +54,12 @@ export const ProtectedLayout = () => {
       if (!currentUser || !currentUser.isAuthorized) {
         handleLogout();
       }
-    }
-  });
 
-  if (
-    isLoadingAuth ||
-    isLoadingAdmins ||
-    adminImageMutation.status === "pending"
-  )
-    return <p>Loading...</p>;
+      adminLastLoginMutation.mutate({ _id: currentUser._id });
+    }
+  }, []);
+
+  if (isLoadingAuth || isLoadingAdmins) return <p>Loading...</p>;
 
   if (!isAuthenticated) handleLogin();
 

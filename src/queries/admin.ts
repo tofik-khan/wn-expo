@@ -18,3 +18,9 @@ export const useAdminImageMutation = () => {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["admins"] }),
   });
 };
+
+export const useAdminLastLoginMutation = () => {
+  return useMutation({
+    mutationFn: ({ _id }: { _id: number }) => API.updateLastLogin({ _id }),
+  });
+};

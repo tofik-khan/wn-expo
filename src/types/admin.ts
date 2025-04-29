@@ -6,4 +6,5 @@ export type Admin = {
   title: string;
   isSuperuser: boolean;
   isAuthorized: boolean;
+  lastLogin: string;
 };

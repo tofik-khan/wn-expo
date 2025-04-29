@@ -1,9 +1,15 @@
 import { useAdminsQuery } from "@/queries/admin"
-import { Avatar, Chip, Typography } from "@mui/material";
+import { Avatar, Box, Chip, Typography, useTheme } from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import dayjs from "dayjs";
+import advancedFormat from "dayjs/plugin/advancedFormat";
+import timezone from "dayjs/plugin/timezone";
+dayjs.extend(timezone);
+dayjs.extend(advancedFormat);
 
 export const PageAdmins = () => {
   const { data: admins, isLoading: isLoadingAdmins } = useAdminsQuery();
+  const theme = useTheme();
 
   const columns: GridColDef[] = [
     {
@@ -61,8 +67,35 @@ export const PageAdmins = () => {
       flex: 2,
     },
     {
-      field: "actions",
-      headerName: "",
+      field: "lastLogin",
+      headerName: "Last Active",
+      renderCell: ({ row }) =>
+        row.lastLogin ? (
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              height: "100%",
+            }}
+          >
+            <Typography color={theme.palette.grey[700]}>
+              {dayjs(row.lastLogin).format("MM/DD/YYYY h:ma z")}
+            </Typography>
+          </Box>
+        ) : (
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100%",
+            }}
+          >
+            <Typography color={theme.palette.grey[500]} fontStyle={"italic"}>
+              never logged in
+            </Typography>
+          </Box>
+        ),
       flex: 3,
     },
   ];
