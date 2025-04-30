@@ -10,7 +10,7 @@ import {
 import { useEffect, useState } from "react";
 import { useAppDispatch } from "@/hooks";
 import { setCurrentUser } from "@/reducers/admin";
-import { Alert, Snackbar } from "@mui/material";
+import { Alert, Box, Snackbar } from "@mui/material";
 
 export const ProtectedLayout = () => {
   const {
@@ -92,14 +92,16 @@ export const ProtectedLayout = () => {
       </Snackbar>
       <AdminSideBar />
       <AdminBar />
-      <main
-        style={{
-          marginLeft: "200px",
-          padding: "20px",
+      <Box
+        component={"main"}
+        sx={{
+          ml: "200px",
+          px: "20px",
+          pt: "40px",
         }}
       >
         <Outlet />
-      </main>
+      </Box>
     </>
   );
 };

@@ -1,25 +1,19 @@
-import { useAdminMutation, useAdminsQuery } from "@/queries/admin";
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAdminsQuery } from "@/queries/admin";
 import { Avatar, Box, Button, Chip, Typography, useTheme } from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import timezone from "dayjs/plugin/timezone";
+import { useState } from "react";
+import { CreateAdminDialog } from "@/pages/admin/components/createAdminDialog";
+import { Add } from "@mui/icons-material";
 dayjs.extend(timezone);
 dayjs.extend(advancedFormat);
 
 export const PageAdmins = () => {
   const { data: admins, isLoading: isLoadingAdmins } = useAdminsQuery();
   const theme = useTheme();
-  const createAdmin = useAdminMutation();
-  const { getAccessTokenSilently, isAuthenticated } = useAuth0();
-
-  const handleCreate = async () => {
-    if (isAuthenticated) {
-      const authToken = await getAccessTokenSilently();
-      createAdmin.mutate({ authToken });
-    }
-  };
+  const [openCreateAdminDialog, setOpenCreateAdminDialog] = useState(false);
 
   const columns: GridColDef[] = [
     {
@@ -112,13 +106,28 @@ export const PageAdmins = () => {
 
   return (
     <>
-      <Typography variant="h2">Admins:</Typography>
-      <Button onClick={handleCreate}>Create</Button>
+      <Box
+        sx={{ display: "flex", justifyContent: "space-between", mx: 3, my: 1 }}
+      >
+        <Typography variant="h2">Admins:</Typography>
+        <Button
+          variant="contained"
+          onClick={() => setOpenCreateAdminDialog(true)}
+          sx={{ display: "flex", gap: 1 }}
+        >
+          <Add />
+          Create Admin
+        </Button>
+      </Box>
       <DataGrid
         loading={isLoadingAdmins}
         rows={admins.map((admin, index) => ({ ...admin, index }))}
         columns={columns}
         getRowId={(row) => row._id}
+      />
+      <CreateAdminDialog
+        open={openCreateAdminDialog}
+        onClose={() => setOpenCreateAdminDialog(false)}
       />
     </>
   );

@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { API } from "@/api";
+import { Admin } from "@/types/admin";
 
 export const useAdminsQuery = () =>
   useQuery({
@@ -27,7 +28,7 @@ export const useAdminLastLoginMutation = () => {
 
 export const useAdminMutation = () => {
   return useMutation({
-    mutationFn: ({ authToken }: { authToken: string }) =>
-      API.createAdmin({ authToken }),
+    mutationFn: ({ authToken, data }: { authToken: string; data: Admin }) =>
+      API.createAdmin({ authToken, data }),
   });
 };
