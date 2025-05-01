@@ -60,7 +60,7 @@ export const ProtectedLayout = () => {
       adminLastLoginMutation.mutate({ _id: currentUser._id });
       setOpenLoginSnackbar(true);
     }
-  }, [isAuthenticated, adminData]);
+  }, [isAuthenticated]);
 
   if (isLoadingAuth || isLoadingAdmins)
     return (
@@ -81,7 +81,7 @@ export const ProtectedLayout = () => {
 
   const currentUser = adminData.find((admin) => admin.email === user.email);
 
-  if (!currentUser) return <p>Authenticating...</p>;
+  if (!currentUser) return handleLogout();
 
   // Check if user data in the data base needs to be updated
   if (currentUser.image !== user.picture)
