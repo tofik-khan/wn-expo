@@ -2,10 +2,21 @@ import { Box, Button, Divider, useTheme } from "@mui/material";
 import { useNavigate } from "react-router";
 import ExpoLogo from "@/assets/expo-logo.png";
 import { Logout } from "@mui/icons-material";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export const AdminSideBar = () => {
   const theme = useTheme();
   const navigate = useNavigate();
+  const { logout } = useAuth0();
+
+  const handleLogout = () => {
+    logout({
+      logoutParams: {
+        returnTo: window.location.origin,
+      },
+    });
+  };
+
   return (
     <>
       <Box
@@ -55,7 +66,7 @@ export const AdminSideBar = () => {
           width: "200px",
         }}
       >
-        <Button variant="contained" color="error">
+        <Button variant="contained" color="error" onClick={handleLogout}>
           <Logout /> Logout
         </Button>
       </Box>

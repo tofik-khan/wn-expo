@@ -10,7 +10,7 @@ import {
 import { useEffect, useState } from "react";
 import { useAppDispatch } from "@/hooks";
 import { setCurrentUser } from "@/reducers/admin";
-import { Alert, Box, Snackbar } from "@mui/material";
+import { Alert, Box, CircularProgress, Snackbar } from "@mui/material";
 
 export const ProtectedLayout = () => {
   const {
@@ -60,13 +60,28 @@ export const ProtectedLayout = () => {
       adminLastLoginMutation.mutate({ _id: currentUser._id });
       setOpenLoginSnackbar(true);
     }
-  }, []);
+  }, [isAuthenticated, adminData]);
 
-  if (isLoadingAuth || isLoadingAdmins) return <p>Loading...</p>;
+  if (isLoadingAuth || isLoadingAdmins)
+    return (
+      <Box
+        sx={{
+          width: "100%",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
 
   if (!isAuthenticated) handleLogin();
 
   const currentUser = adminData.find((admin) => admin.email === user.email);
+
+  if (!currentUser) return <p>Authenticating...</p>;
 
   // Check if user data in the data base needs to be updated
   if (currentUser.image !== user.picture)
