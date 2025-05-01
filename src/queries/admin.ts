@@ -3,6 +3,7 @@ import { API } from "@/api";
 import { Admin } from "@/types/admin";
 import { useDispatch } from "react-redux";
 import { showSuccess } from "@/reducers";
+import { useAppDispatch } from "@/hooks";
 
 export const useAdminsQuery = () =>
   useQuery({
@@ -29,9 +30,15 @@ export const useAdminLastLoginMutation = () => {
 };
 
 export const useAdminMutation = () => {
+  const queryClient = useQueryClient();
+  const dispatch = useAppDispatch();
   return useMutation({
     mutationFn: ({ authToken, data }: { authToken: string; data: Admin }) =>
       API.createAdmin({ authToken, data }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["admins"] });
+      dispatch(showSuccess({ open: true, message: "Admin Created!" }));
+    },
   });
 };
 
@@ -46,7 +53,7 @@ export const useUpdateAdminMutation = () => {
       }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["admins"] });
-      dispatch(showSuccess({ open: true, message: "Admin Updated" }));
+      dispatch(showSuccess({ open: true, message: "Admin Updated!" }));
     },
   });
 };
