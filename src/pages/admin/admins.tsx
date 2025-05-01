@@ -1,19 +1,32 @@
 import { useAdminsQuery } from "@/queries/admin";
-import { Avatar, Box, Button, Chip, Typography, useTheme } from "@mui/material";
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import {
+  Avatar,
+  Box,
+  Button,
+  Chip,
+  IconButton,
+  Typography,
+  useTheme,
+} from "@mui/material";
+import { DataGrid, gridClasses, GridColDef } from "@mui/x-data-grid";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import timezone from "dayjs/plugin/timezone";
 import { useState } from "react";
 import { CreateAdminDialog } from "@/pages/admin/components/createAdminDialog";
-import { Add } from "@mui/icons-material";
+import { Add, Edit } from "@mui/icons-material";
 dayjs.extend(timezone);
 dayjs.extend(advancedFormat);
 
 export const PageAdmins = () => {
-  const { data: admins, isLoading: isLoadingAdmins } = useAdminsQuery();
+  const {
+    data: admins,
+    isLoading: isLoadingAdmins,
+    isRefetching: isRefetchingAdmins,
+  } = useAdminsQuery();
   const theme = useTheme();
   const [openCreateAdminDialog, setOpenCreateAdminDialog] = useState(false);
+  const [admin, setAdmin] = useState(null);
 
   const columns: GridColDef[] = [
     {
@@ -102,6 +115,22 @@ export const PageAdmins = () => {
         ),
       flex: 3,
     },
+    {
+      field: "actions",
+      headerName: "Actions",
+      renderCell: ({ row }) => (
+        <IconButton
+          disabled={row.isSuperuser}
+          color={"primary"}
+          onClick={() => {
+            setAdmin(row);
+            setOpenCreateAdminDialog(true);
+          }}
+        >
+          <Edit />
+        </IconButton>
+      ),
+    },
   ];
 
   return (
@@ -120,14 +149,31 @@ export const PageAdmins = () => {
         </Button>
       </Box>
       <DataGrid
-        loading={isLoadingAdmins}
+        loading={isLoadingAdmins || isRefetchingAdmins}
         rows={admins.map((admin, index) => ({ ...admin, index }))}
         columns={columns}
         getRowId={(row) => row._id}
+        sx={{
+          [`& .${gridClasses.columnHeader}, & .${gridClasses.cell}`]: {
+            outline: "transparent",
+          },
+          [`& .${gridClasses.columnHeader}:focus-within, & .${gridClasses.cell}:focus-within`]:
+            {
+              outline: "none",
+            },
+        }}
+        slotProps={{
+          loadingOverlay: {
+            variant: "linear-progress",
+            noRowsVariant: "skeleton",
+          },
+        }}
       />
       <CreateAdminDialog
         open={openCreateAdminDialog}
         onClose={() => setOpenCreateAdminDialog(false)}
+        admin={admin}
+        setAdmin={setAdmin}
       />
     </>
   );

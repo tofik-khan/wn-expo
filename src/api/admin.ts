@@ -33,4 +33,14 @@ export const adminAPI = {
       },
     });
   },
+  updateAdmin: ({
+    authToken,
+    data,
+  }): Promise<{ data: string; status: string }> => {
+    return axios.put(`${API_BASE}/admin`, data, {
+      headers: {
+        Authorization: `Bearer ${authToken}`,
+      },
+    });
+  },
 };

@@ -1,6 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { API } from "@/api";
 import { Admin } from "@/types/admin";
+import { useDispatch } from "react-redux";
+import { showSuccess } from "@/reducers";
 
 export const useAdminsQuery = () =>
   useQuery({
@@ -10,9 +12,9 @@ export const useAdminsQuery = () =>
   });
 
 /** MUTATIONS */
+
 export const useAdminImageMutation = () => {
   const queryClient = useQueryClient();
-
   return useMutation({
     mutationFn: ({ _id, image }: { _id: number; image: string }) =>
       API.updateAdminImage({ _id, image }),
@@ -30,5 +32,21 @@ export const useAdminMutation = () => {
   return useMutation({
     mutationFn: ({ authToken, data }: { authToken: string; data: Admin }) =>
       API.createAdmin({ authToken, data }),
+  });
+};
+
+export const useUpdateAdminMutation = () => {
+  const queryClient = useQueryClient();
+  const dispatch = useDispatch();
+  return useMutation({
+    mutationFn: ({ authToken, data }: { authToken: string; data: Admin }) =>
+      API.updateAdmin({
+        authToken,
+        data,
+      }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["admins"] });
+      dispatch(showSuccess({ open: true, message: "Admin Updated" }));
+    },
   });
 };
