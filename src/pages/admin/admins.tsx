@@ -96,7 +96,7 @@ export const PageAdmins = () => {
             }}
           >
             <Typography color={theme.palette.grey[700]}>
-              {dayjs(row.lastLogin).format("MM/DD/YYYY h:ma z")}
+              {dayjs(row.lastLogin).format("MM/DD/YYYY h:mma z")}
             </Typography>
           </Box>
         ) : (
