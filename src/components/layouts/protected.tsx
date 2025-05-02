@@ -86,7 +86,10 @@ export const ProtectedLayout = () => {
 
   const currentUser = adminData.find((admin) => admin.email === user.email);
 
-  if (!currentUser) return handleLogout();
+  if (!currentUser) {
+    handleLogout();
+    return <></>;
+  }
 
   dispatch(setCurrentUser(currentUser));
 
