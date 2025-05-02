@@ -8,7 +8,7 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import { DataGrid, gridClasses, GridColDef } from "@mui/x-data-grid";
+import { DataGridPro, gridClasses, GridColDef } from "@mui/x-data-grid-pro";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import timezone from "dayjs/plugin/timezone";
@@ -148,7 +148,7 @@ export const PageAdmins = () => {
           Create Admin
         </Button>
       </Box>
-      <DataGrid
+      <DataGridPro
         loading={isLoadingAdmins || isRefetchingAdmins}
         rows={admins.map((admin, index) => ({ ...admin, index }))}
         columns={columns}
