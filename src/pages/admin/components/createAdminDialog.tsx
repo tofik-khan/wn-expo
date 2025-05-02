@@ -120,7 +120,7 @@ export const CreateAdminDialog = ({
                 name="email"
                 control={control}
                 key={"email-input"}
-                defaultValue={editMode ? admin.email : ""}
+                defaultValue={editMode ? admin.email.split("@")[0] : ""}
               />
               <Typography>@ahmadiyya.us</Typography>
             </Box>

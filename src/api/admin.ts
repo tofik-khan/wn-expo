@@ -27,20 +27,28 @@ export const adminAPI = {
     authToken,
     data,
   }): Promise<{ data: string; status: string }> => {
-    return axios.post(`${API_BASE}/admin`, data, {
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-    });
+    return axios.post(
+      `${API_BASE}/admin`,
+      { ...data, email: `${data.email}@ahmadiyya.us` },
+      {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      }
+    );
   },
   updateAdmin: ({
     authToken,
     data,
   }): Promise<{ data: string; status: string }> => {
-    return axios.put(`${API_BASE}/admin`, data, {
-      headers: {
-        Authorization: `Bearer ${authToken}`,
-      },
-    });
+    return axios.put(
+      `${API_BASE}/admin`,
+      { ...data, email: `${data.email}@ahmadiyya.us` },
+      {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      }
+    );
   },
 };
