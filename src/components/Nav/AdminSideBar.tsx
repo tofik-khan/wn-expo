@@ -44,7 +44,11 @@ export const AdminSideBar = () => {
         <Button fullWidth sx={{ my: 1 }}>
           Presenters
         </Button>
-        <Button fullWidth sx={{ my: 1 }}>
+        <Button
+          fullWidth
+          sx={{ my: 1 }}
+          onClick={() => navigate("/admin/faqs")}
+        >
           FAQs
         </Button>
         <Divider
