@@ -84,7 +84,6 @@ export const CreateAdminDialog = ({
           <DialogContent
             dividers
             sx={{
-              mt: "24px",
               pl: "16px",
               display: "flex",
               flexDirection: "column",

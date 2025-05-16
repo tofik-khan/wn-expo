@@ -1,7 +1,7 @@
 import { SimpleEditor } from "@/components/tiptap/components/tiptap-templates/simple/simple-editor";
 import { Box, useTheme } from "@mui/material";
 // import "@/components/tiptap/styles/_keyframe-animations.scss";
-import "@/components/tiptap/styles/_variables.scss";
+import "@/components/tiptap/styles/_variables.module.scss";
 
 export const Editor = ({ content, onUpdate }) => {
   const theme = useTheme();
