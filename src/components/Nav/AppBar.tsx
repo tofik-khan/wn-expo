@@ -37,12 +37,6 @@ export const AppBar = () => {
       <Button variant="contained">
         <Typography color="white">FAQs</Typography>
       </Button>
-      <Button variant="contained">
-        <Typography color="white">Archives</Typography>
-      </Button>
-      <Button variant="contained">
-        <Typography color="white">Contact Us</Typography>
-      </Button>
     </>
   );
 
