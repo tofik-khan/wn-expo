@@ -1,39 +1,48 @@
-import {useState} from "react";
-import { Box, Button, Container, Drawer, AppBar as MUIAppBar, Toolbar } from "@mui/material";
-import ExpoLogo from "@/assets/expo-logo.png"
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import MenuIcon from '@mui/icons-material/Menu';
+import { useState } from "react";
+import {
+  Box,
+  Button,
+  Container,
+  Drawer,
+  AppBar as MUIAppBar,
+  Toolbar,
+  Typography,
+} from "@mui/material";
+import ExpoLogo from "@/assets/expo-logo.png";
+import MenuIcon from "@mui/icons-material/Menu";
 import { Close } from "@mui/icons-material";
 import { useNavigate } from "react-router";
-import { useAuth0 } from "@auth0/auth0-react";
 
 export const AppBar = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  const { loginWithRedirect } = useAuth0();
 
-  const handleLogin = async () => {
-    await loginWithRedirect({
-      appState: {
-        returnTo: "/admin",
-      },
-    });
-  };
-
-  const AdminSection = () => (
-    <Button onClick={handleLogin}>
-      <PersonOutlineIcon /> Admin
+  const CTA = () => (
+    <Button color="success" variant="contained">
+      Register Now
     </Button>
   );
 
   const NavItems = () => (
     <>
-      <Button>Day 1</Button>
-      <Button>Day 2</Button>
-      <Button>Speakers</Button>
-      <Button>FAQs</Button>
-      <Button>Archives</Button>
-      <Button>Contact Us</Button>
+      <Button variant="contained">
+        <Typography color="white">Day 1</Typography>
+      </Button>
+      <Button variant="contained">
+        <Typography color="white">Day 2</Typography>
+      </Button>
+      <Button variant="contained">
+        <Typography color="white">Speakers</Typography>
+      </Button>
+      <Button variant="contained">
+        <Typography color="white">FAQs</Typography>
+      </Button>
+      <Button variant="contained">
+        <Typography color="white">Archives</Typography>
+      </Button>
+      <Button variant="contained">
+        <Typography color="white">Contact Us</Typography>
+      </Button>
     </>
   );
 
@@ -42,7 +51,12 @@ export const AppBar = () => {
       <MUIAppBar
         component="nav"
         position="sticky"
-        sx={{ borderRadius: "4px", backgroundColor: "white" }}
+        sx={(theme) => ({
+          borderRadius: "0px",
+          backgroundColor: theme.palette.primary.main,
+          zIndex: 10000,
+          py: 1,
+        })}
       >
         {/** Desktop NavBar */}
         <Container maxWidth="xl" sx={{ display: { md: "block", xs: "none" } }}>
@@ -78,7 +92,7 @@ export const AppBar = () => {
                   alignContent: "center",
                 }}
               >
-                <AdminSection />
+                <CTA />
               </Box>
             </Box>
           </Toolbar>
@@ -141,7 +155,7 @@ export const AppBar = () => {
             width: "100%",
           }}
         >
-          <AdminSection />
+          <CTA />
         </Box>
       </Drawer>
     </>
