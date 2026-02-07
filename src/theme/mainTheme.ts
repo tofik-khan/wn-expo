@@ -14,7 +14,7 @@ export const theme = createTheme({
       contrastText: "#FFFFFF",
     },
     success: {
-      main: "#1DB980", // Registration CTA Emerald
+      main: "#004b23", // Registration CTA Emerald
       contrastText: "#FFFFFF",
     },
     background: {

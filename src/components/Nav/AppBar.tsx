@@ -25,16 +25,16 @@ export const AppBar = () => {
 
   const NavItems = () => (
     <>
-      <Button variant="contained">
+      <Button fullWidth variant="contained">
         <Typography color="white">Day 1</Typography>
       </Button>
-      <Button variant="contained">
+      <Button fullWidth variant="contained">
         <Typography color="white">Day 2</Typography>
       </Button>
-      <Button variant="contained">
+      <Button fullWidth variant="contained">
         <Typography color="white">Speakers</Typography>
       </Button>
-      <Button variant="contained">
+      <Button fullWidth variant="contained">
         <Typography color="white">FAQs</Typography>
       </Button>
     </>
@@ -48,7 +48,6 @@ export const AppBar = () => {
         sx={(theme) => ({
           borderRadius: "0px",
           backgroundColor: theme.palette.primary.main,
-          zIndex: 10000,
           py: 1,
         })}
       >
@@ -112,8 +111,11 @@ export const AppBar = () => {
                   alignItems: "center",
                 }}
               >
-                <Button>
-                  <MenuIcon onClick={() => setOpen(true)} />
+                <Button variant="outlined" color="secondary">
+                  <MenuIcon
+                    sx={{ color: "white" }}
+                    onClick={() => setOpen(true)}
+                  />
                 </Button>
               </Box>
             </Box>
