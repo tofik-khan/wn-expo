@@ -1,14 +1,115 @@
-import { createTheme } from "@mui/material";
-import { colors } from "@/lib/colors";
+import { createTheme } from "@mui/material/styles";
 
 export const theme = createTheme({
-  palette: colors,
+  palette: {
+    mode: "light",
+    primary: {
+      main: "#0B1D37", // Deep Navy
+      contrastText: "#FFFFFF",
+    },
+    secondary: {
+      main: "#C5A059", // Gold Accent
+      light: "#DBC08D",
+      dark: "#8E733F",
+      contrastText: "#FFFFFF",
+    },
+    success: {
+      main: "#1DB980", // Registration CTA Emerald
+      contrastText: "#FFFFFF",
+    },
+    background: {
+      default: "#F8F9FA",
+      paper: "#FFFFFF",
+    },
+    text: {
+      primary: "#0B1D37",
+      secondary: "#556172",
+    },
+  },
   typography: {
+    fontFamily: '"Inter", "Arial", sans-serif', // Default body font
+    h1: {
+      fontFamily: '"Montserrat", sans-serif',
+      fontWeight: 800,
+      fontSize: "3.5rem",
+      lineHeight: 1.2,
+      letterSpacing: "-0.02em",
+    },
     h2: {
-      fontFamily: "Fraunces,Georgia,Times,serif",
-      fontWeight: "bold",
-      fontSize: "24px",
-      marginBottom: "8px",
+      fontFamily: '"Montserrat", sans-serif',
+      fontWeight: 700,
+      fontSize: "2.5rem",
+      lineHeight: 1.3,
+    },
+    h3: {
+      fontFamily: '"Montserrat", sans-serif',
+      fontWeight: 700,
+      fontSize: "2rem",
+    },
+    h4: {
+      fontFamily: '"Montserrat", sans-serif',
+      fontWeight: 600,
+      fontSize: "1.5rem",
+    },
+    h5: {
+      fontFamily: '"Montserrat", sans-serif',
+      fontWeight: 600,
+      fontSize: "1.25rem",
+    },
+    h6: {
+      fontFamily: '"Montserrat", sans-serif',
+      fontWeight: 600,
+      fontSize: "1.1rem",
+      textTransform: "uppercase",
+      letterSpacing: "0.05em",
+    },
+    subtitle1: {
+      fontSize: "1.5rem",
+      lineHeight: 1.5,
+      fontWeight: 400,
+      color: "#556172",
+    },
+    subtitle2: {
+      fontSize: "1rem",
+      fontWeight: 600,
+      color: "#C5A059", // Used for "Starts in:" or small labels
+    },
+    body1: {
+      fontSize: "1rem",
+      lineHeight: 1.6,
+    },
+    body2: {
+      fontSize: "0.875rem",
+      lineHeight: 1.6,
+    },
+    button: {
+      fontFamily: '"Montserrat", sans-serif',
+      fontWeight: 700,
+      fontSize: "0.9rem",
+    },
+    caption: {
+      fontSize: "0.75rem",
+      letterSpacing: "0.05em",
+      fontWeight: 500,
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8, // Rounded corners for a modern look
+          padding: "10px 24px",
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          borderRadius: 12,
+        },
+      },
     },
   },
 });
+
+export default theme;
