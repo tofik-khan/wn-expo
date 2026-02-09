@@ -1,4 +1,4 @@
-import { SectionCTA } from "@/components/homepage/sections/CTA";
+import { SectionCTA } from "@/components/homepage/sections/cta";
 import { SectionHero } from "@/components/homepage/sections/hero";
 import { SectionInfo } from "@/components/homepage/sections/info";
 import { SectionPartners } from "@/components/homepage/sections/partners";
