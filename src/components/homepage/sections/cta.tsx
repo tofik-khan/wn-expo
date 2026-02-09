@@ -1,6 +1,8 @@
 import { Box, Button } from "@mui/material";
+import { useNavigate } from "react-router";
 
 export const SectionCTA = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Box
@@ -25,6 +27,7 @@ export const SectionCTA = () => {
           variant="outlined"
           color="secondary"
           sx={{ color: "white", marginX: 1 }}
+          onClick={() => navigate("/sessions/2026-05-09")}
         >
           Day 1 Agenda
         </Button>
@@ -32,6 +35,7 @@ export const SectionCTA = () => {
           variant="outlined"
           color="secondary"
           sx={{ color: "white", marginX: 1 }}
+          onClick={() => navigate("/sessions/2026-05-10")}
         >
           Day 2 Agenda
         </Button>

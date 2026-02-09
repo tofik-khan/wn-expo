@@ -23,22 +23,33 @@ export const AppBar = () => {
     </Button>
   );
 
-  const NavItems = () => (
-    <>
-      <Button fullWidth variant="contained">
-        <Typography color="white">Day 1</Typography>
-      </Button>
-      <Button fullWidth variant="contained">
-        <Typography color="white">Day 2</Typography>
-      </Button>
-      <Button fullWidth variant="contained">
-        <Typography color="white">Speakers</Typography>
-      </Button>
-      <Button fullWidth variant="contained">
-        <Typography color="white">FAQs</Typography>
-      </Button>
-    </>
-  );
+  const NavItems = () => {
+    const navigate = useNavigate();
+    return (
+      <>
+        <Button
+          fullWidth
+          variant="contained"
+          onClick={() => navigate("/sessions/2026-05-09")}
+        >
+          <Typography color="white">Day 1</Typography>
+        </Button>
+        <Button
+          fullWidth
+          variant="contained"
+          onClick={() => navigate("/sessions/2026-05-10")}
+        >
+          <Typography color="white">Day 2</Typography>
+        </Button>
+        <Button fullWidth variant="contained">
+          <Typography color="white">Speakers</Typography>
+        </Button>
+        <Button fullWidth variant="contained">
+          <Typography color="white">FAQs</Typography>
+        </Button>
+      </>
+    );
+  };
 
   return (
     <>
