@@ -14,16 +14,16 @@ export const isSessionLive = (session: Session<Presenter>) => {
 
   const start = dayjs
     .tz(
-      // `${session.date} ${session.startTime}`,
-      `${nowET.format("YYYY-MM-DD")} ${session.startTime}`,
+      `${session.date} ${session.startTime}`,
+      // `${nowET.format("YYYY-MM-DD")} ${session.startTime}`,
       "YYYY-MM-DD h:mm a",
       "America/New_York",
     )
     .subtract(5, "minutes");
 
   const end = dayjs.tz(
-    // `${session.date} ${session.endTime}`,
-    `${nowET.format("YYYY-MM-DD")} ${session.endTime}`,
+    `${session.date} ${session.endTime}`,
+    // `${nowET.format("YYYY-MM-DD")} ${session.endTime}`,
     "YYYY-MM-DD h:mm a",
     "America/New_York",
   );
