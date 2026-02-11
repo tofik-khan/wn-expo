@@ -126,11 +126,12 @@ export const AppBar = () => {
                   alignItems: "center",
                 }}
               >
-                <Button variant="outlined" color="secondary">
-                  <MenuIcon
-                    sx={{ color: "white" }}
-                    onClick={() => setOpen(true)}
-                  />
+                <Button
+                  variant="outlined"
+                  color="secondary"
+                  onClick={() => setOpen(true)}
+                >
+                  <MenuIcon sx={{ color: "white" }} />
                 </Button>
               </Box>
             </Box>
