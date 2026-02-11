@@ -1,10 +1,6 @@
-export type Faq = {
-  _id: number;
+export type FAQ = {
+  _id: string;
   title: string;
   content: string;
-  createdBy: number;
-  createdAt: string;
-  editedBy: number;
-  editedAt: string;
   isPublished: boolean;
 };
