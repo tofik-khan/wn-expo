@@ -45,7 +45,7 @@ export const PageSessions = () => {
       >
         {sessionData.title}
         <Typography variant="subtitle1">{sessionData.venue}</Typography>
-        {sortedData.length > 1 ? (
+        {sortedData.length > 0 ? (
           sortedData.map((hourblock) => {
             return (
               <HourBlock
