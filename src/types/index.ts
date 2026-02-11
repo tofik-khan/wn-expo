@@ -7,6 +7,7 @@ export type Presenter = {
   isFeatured: boolean;
   image: string;
   bio: string;
+  sessions?: Session[];
 };
 
 export type Session<TPresenter = { label: string; value: string }> = {
