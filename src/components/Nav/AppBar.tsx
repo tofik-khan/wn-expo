@@ -48,7 +48,7 @@ export const AppBar = () => {
         >
           <Typography color="white">Speakers</Typography>
         </Button>
-        <Button fullWidth variant="contained">
+        <Button fullWidth variant="contained" onClick={() => navigate("/faqs")}>
           <Typography color="white">FAQs</Typography>
         </Button>
       </>
