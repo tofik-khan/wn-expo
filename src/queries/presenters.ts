@@ -1,9 +1,9 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery } from "@tanstack/react-query";
 import { API } from "@/api";
 
-export const usePresentersCountQuery = () => useQuery({
-    queryKey: ['presentersCount'],
-    queryFn: API.getPresentersCount,
-    select: response => response.data
-  }
-)
+export const usePresentersQuery = () =>
+  useQuery({
+    queryKey: ["presenters"],
+    queryFn: API.getPresenters,
+    select: (response) => response.data,
+  });
