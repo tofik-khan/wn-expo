@@ -29,14 +29,16 @@ export const SessionModal = ({
   const [isLive, setIsLive] = useState(false);
 
   useEffect(() => {
+    if (!session) return;
     const interval = setInterval(() => {
       setIsLive(isSessionLive(session));
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [session]);
 
   if (!session) return <></>;
+
   return (
     <>
       <Dialog open={open} onClose={onClose} fullWidth maxWidth="md">
