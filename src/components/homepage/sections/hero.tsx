@@ -28,8 +28,8 @@ export const SectionHero = () => {
           py={5}
           color="white"
         >
-          Join us for the Waqf-e-Nau Career Expo -- a journey through
-          professional excelence and spiritual dedication
+          Join us for the Waqf-e-Nau Career Expo &mdash; a journey through
+          professional excellence and spiritual dedication
         </Typography>
         <Box
           sx={{
@@ -42,7 +42,7 @@ export const SectionHero = () => {
         >
           <Countdown date={dayjs("May 09 2026 11:00:00 GMT-0500").format()} />
           <Typography my={2} variant="subtitle2">
-            May X<sup>th</sup> Y<sup>th</sup> 2026
+            May 9<sup>th</sup> 10<sup>th</sup> 2026
           </Typography>
         </Box>
         <Typography textAlign={"center"}>
