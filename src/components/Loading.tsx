@@ -1,6 +1,6 @@
 import { Box, CircularProgress } from "@mui/material";
 
-export const Loading = ({ height = "100vh" }) => {
+export const Loading = ({ height = "80vh" }) => {
   return (
     <>
       <Box

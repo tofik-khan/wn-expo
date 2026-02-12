@@ -5,6 +5,8 @@ export const theme = createTheme({
     mode: "light",
     primary: {
       main: "#0B1D37", // Deep Navy
+      light: "#112D55",
+
       contrastText: "#FFFFFF",
     },
     secondary: {
