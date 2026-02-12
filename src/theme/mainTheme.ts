@@ -70,7 +70,7 @@ export const theme = createTheme({
       color: "#556172",
     },
     subtitle2: {
-      fontSize: "1rem",
+      fontSize: "1.3rem",
       fontWeight: 600,
       color: "#C5A059", // Used for "Starts in:" or small labels
     },
