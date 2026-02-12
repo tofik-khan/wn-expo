@@ -3,17 +3,18 @@ import { HourBlock } from "@/components/sesssions/HourBlock";
 import { SessionModal } from "@/components/sesssions/SessionModal";
 import { SESSION_INFO } from "@/constants/sessions";
 import { useSessionsQuery } from "@/queries/session";
-import { Container, Typography } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { useEffect, useState } from "react";
 
 dayjs.extend(customParseFormat);
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 export const PageSessions = () => {
   const { date } = useParams();
   const { isLoading, isRefetching, data, refetch } = useSessionsQuery(date);
+  const navigate = useNavigate();
 
   useEffect(() => {
     refetch();
@@ -58,7 +59,41 @@ export const PageSessions = () => {
             );
           })
         ) : (
-          <Typography>No Sessions for this day</Typography>
+          <>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: 3,
+              }}
+            >
+              <img
+                src="/images/graphics/calendar.png"
+                style={{ marginBlock: 2, width: "400px" }}
+              />
+
+              <Typography fontSize={"28px"} color="text.secondary">
+                No Sessions available yet.
+              </Typography>
+              <Box>
+                <Typography>
+                  You will find the sessions for the Waqf-e-Nau EXPO here.
+                </Typography>
+                <Typography>
+                  Please check back later for the list of scheduled sessions
+                </Typography>
+              </Box>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => navigate("/")}
+              >
+                Return Home
+              </Button>
+            </Box>
+          </>
         )}
       </Container>
       <SessionModal
