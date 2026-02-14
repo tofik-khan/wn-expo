@@ -42,7 +42,7 @@ export const SectionHero = () => {
         >
           <Countdown date={dayjs("May 09 2026 11:00:00 GMT-0500").format()} />
           <Typography my={2} variant="subtitle2">
-            May 9<sup>th</sup> 10<sup>th</sup> 2026
+            May 9<sup>th</sup> &amp; 10<sup>th</sup> 2026
           </Typography>
         </Box>
         <Typography textAlign={"center"}>
