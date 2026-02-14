@@ -13,11 +13,11 @@ const Block = ({ value, title }) => {
       <Box
         sx={(theme) => ({
           width: {
-            xs: "80px",
+            xs: "75px",
             md: "100px",
           },
           height: {
-            xs: "80px",
+            xs: "75px",
             md: "100px",
           },
 
