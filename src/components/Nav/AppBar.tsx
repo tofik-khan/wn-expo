@@ -51,6 +51,14 @@ export const AppBar = () => {
         <Button fullWidth variant="contained" onClick={() => navigate("/faqs")}>
           <Typography color="white">FAQs</Typography>
         </Button>
+        <Button
+          fullWidth
+          variant="contained"
+          href="mailto:zeeshan.ahmad@ahmadiyya.us"
+          sx={{ minWidth: "fit-content" }}
+        >
+          <Typography color="white">Email Us</Typography>
+        </Button>
       </>
     );
   };
