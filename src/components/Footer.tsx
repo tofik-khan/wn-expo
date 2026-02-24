@@ -67,7 +67,7 @@ export const Footer = () => {
         >
           <Typography>
             &copy; {new Date().getFullYear()} Waqf-e-Nau USA. All rights
-            reserveds
+            reserved
           </Typography>
           <Box sx={{ display: "flex", flexDirection: "row", gap: 1 }}>
             <Typography color="secondary">Need Assistance?</Typography>
