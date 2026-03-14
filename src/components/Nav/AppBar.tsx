@@ -18,7 +18,12 @@ export const AppBar = () => {
   const navigate = useNavigate();
 
   const CTA = () => (
-    <Button color="success" variant="contained">
+    <Button
+      color="success"
+      variant="contained"
+      href="https://forms.gle/ekugE1bQGVgprqao6"
+      target="_blank"
+    >
       Register Now
     </Button>
   );

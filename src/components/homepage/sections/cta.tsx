@@ -20,7 +20,13 @@ export const SectionCTA = () => {
           color: "white",
         })}
       >
-        <Button sx={{ marginX: 1 }} color="success" variant="contained">
+        <Button
+          sx={{ marginX: 1 }}
+          color="success"
+          variant="contained"
+          href="https://forms.gle/ekugE1bQGVgprqao6"
+          target="_blank"
+        >
           Register for the Expo
         </Button>
         <Button
