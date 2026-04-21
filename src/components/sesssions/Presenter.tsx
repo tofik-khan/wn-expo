@@ -8,6 +8,7 @@ export const Presenter = ({ data }: { data: TPresenter }) => {
         sx={(theme) => ({
           height: "auto",
           width: "100%",
+          minWidth: "300px",
           my: 1,
           p: 1,
           display: "flex",
