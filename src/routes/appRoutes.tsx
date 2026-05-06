@@ -5,6 +5,7 @@ import { PageFAQs } from "@/pages/faqs";
 import { PageHome } from "@/pages/home";
 import { PagePresenters } from "@/pages/presenters";
 import { PageSessions } from "@/pages/sessions";
+import { PageTestSessions } from "@/pages/sesstions-test";
 import { Navigate, Route, Routes } from "react-router";
 
 export const AppRoutes = () => {
@@ -32,6 +33,7 @@ const SessionRoutes = () => {
         {/* Public Routes */}
         <Route path="/" element={<Navigate to={"/"} />} />
         <Route path="/:date" element={<PageSessions />} />
+        <Route path="/:date/test" element={<PageTestSessions />} />
       </Routes>
     </>
   );

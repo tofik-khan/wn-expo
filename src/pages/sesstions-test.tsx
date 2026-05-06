@@ -1,0 +1,143 @@
+import { Loading } from "@/components/Loading";
+import { HourBlock } from "@/components/sesssions/HourBlock";
+import { SessionModal } from "@/components/sesssions/SessionModal";
+import { SESSION_INFO } from "@/constants/sessions";
+import { useSessionsQuery } from "@/queries/session";
+import { Box, Button, Container, TextField, Typography } from "@mui/material";
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+import { useEffect, useState } from "react";
+
+dayjs.extend(customParseFormat);
+import { useNavigate, useParams } from "react-router";
+
+export const PageTestSessions = () => {
+  const { date } = useParams();
+  const { isLoading, isRefetching, data, refetch } = useSessionsQuery(date);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    refetch();
+  }, [date]);
+
+  const [session, setSession] = useState(null);
+  const [startTime, setStartTime] = useState(null);
+  const [endTime, setEndTime] = useState(null);
+
+  if (isLoading || isRefetching) return <Loading />;
+
+  const sortedData = data.sort((a, b) => {
+    const timeA = dayjs(a._id, "h:mm a");
+    const timeB = dayjs(b._id, "h:mm a");
+
+    return timeA.valueOf() - timeB.valueOf();
+  });
+
+  /**
+   * Replace session date and time with user's current date and provided time
+   * Allows admins to test functionality before the event
+   */
+  const testData = sortedData.map((hourBlock) => {
+    const sessions = hourBlock.sessions.map((session) => ({
+      ...session,
+      startTime: startTime ?? session.startTime,
+      endTime: endTime ?? session.endTime,
+      date: dayjs().format("YYYY-MM-DD"),
+    }));
+
+    return {
+      ...hourBlock,
+      sessions,
+    };
+  });
+
+  const sessionData =
+    SESSION_INFO.find((session) => session.date === date) ?? SESSION_INFO[0];
+
+  return (
+    <>
+      <Container
+        maxWidth="xl"
+        sx={(theme) => ({
+          backgroundColor: theme.palette.grey[50],
+          marginY: 3,
+          p: 5,
+        })}
+      >
+        {sessionData.title}
+        <Typography variant="subtitle1">{sessionData.venue}</Typography>
+        {/* 
+            Text Fields to set start and end times
+        */}
+        <Box sx={{ display: "flex", gap: 2 }}>
+          <TextField
+            value={startTime}
+            onChange={(event) => setStartTime(event.target.value)}
+            label="Start Time"
+            placeholder="HH:MM am"
+          />
+          <TextField
+            value={endTime}
+            onChange={(event) => setEndTime(event.target.value)}
+            label="End Time"
+            placeholder="HH:MM am"
+          />
+        </Box>
+        {testData.length > 0 ? (
+          testData.map((hourblock) => {
+            return (
+              <HourBlock
+                key={hourblock._id}
+                data={hourblock}
+                onClick={(session) => {
+                  setSession(session);
+                }}
+              />
+            );
+          })
+        ) : (
+          <>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: 3,
+              }}
+            >
+              <img
+                src="/images/graphics/calendar.png"
+                style={{ marginBlock: 2, width: "400px" }}
+              />
+
+              <Typography fontSize={"28px"} color="text.secondary">
+                No Sessions available yet.
+              </Typography>
+              <Box>
+                <Typography>
+                  You will find the sessions for the Waqf-e-Nau EXPO here.
+                </Typography>
+                <Typography>
+                  Please check back later for the list of scheduled sessions
+                </Typography>
+              </Box>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => navigate("/")}
+              >
+                Return Home
+              </Button>
+            </Box>
+          </>
+        )}
+      </Container>
+      <SessionModal
+        open={session !== null}
+        onClose={() => setSession(null)}
+        session={session}
+      />
+    </>
+  );
+};
