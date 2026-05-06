@@ -25,7 +25,7 @@ export const SessionCard = ({
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [session]);
 
   return (
     <>
