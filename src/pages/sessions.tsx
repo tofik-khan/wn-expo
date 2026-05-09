@@ -1,9 +1,10 @@
 import { Loading } from "@/components/Loading";
 import { HourBlock } from "@/components/sesssions/HourBlock";
+import { JoinInstructionModal } from "@/components/sesssions/JoinInstructionModal";
 import { SessionModal } from "@/components/sesssions/SessionModal";
 import { SESSION_INFO } from "@/constants/sessions";
 import { useSessionsQuery } from "@/queries/session";
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Button, Container, Link, Typography } from "@mui/material";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { useEffect, useState } from "react";
@@ -21,6 +22,7 @@ export const PageSessions = () => {
   }, [date]);
 
   const [session, setSession] = useState(null);
+  const [openInstructions, setOpenInstructions] = useState(false);
 
   if (isLoading || isRefetching) return <Loading />;
 
@@ -46,6 +48,18 @@ export const PageSessions = () => {
       >
         {sessionData.title}
         <Typography variant="subtitle1">{sessionData.venue}</Typography>
+        <Link variant="overline" onClick={() => setOpenInstructions(true)}>
+          <Typography
+            variant="overline"
+            sx={{
+              fontWeight: "bold",
+              fontSize: "14px",
+              "&:hover": { cursor: "pointer" },
+            }}
+          >
+            How to join a session?
+          </Typography>
+        </Link>
         {sortedData.length > 0 ? (
           sortedData.map((hourblock) => {
             return (
@@ -100,6 +114,10 @@ export const PageSessions = () => {
         open={session !== null}
         onClose={() => setSession(null)}
         session={session}
+      />
+      <JoinInstructionModal
+        open={openInstructions}
+        onClose={() => setOpenInstructions(false)}
       />
     </>
   );
