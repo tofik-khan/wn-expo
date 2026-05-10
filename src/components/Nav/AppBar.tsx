@@ -17,6 +17,8 @@ export const AppBar = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
+  /**
+  // CTA for when Expo date is in the future
   const CTA = () => (
     <Button
       color="success"
@@ -25,6 +27,18 @@ export const AppBar = () => {
       target="_blank"
     >
       Register Now
+    </Button>
+  );
+   */
+
+  const CTA = () => (
+    <Button
+      color="success"
+      variant="contained"
+      href="https://docs.google.com/forms/d/e/1FAIpQLScwK2jZFLdCuc15lDX2yELu1v4n_DtwsLNwuH0AgAirISs4gw/viewform"
+      target="_blank"
+    >
+      Share your Feedback
     </Button>
   );
 
